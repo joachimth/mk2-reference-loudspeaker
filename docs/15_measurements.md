@@ -50,7 +50,7 @@ For full spinorama measurements, a quiet room with a turntable setup is needed. 
 - Distortion in the 150-1500 Hz range
 - Impedance in cabinet
 
-### Tweeter / Waveguide (Seas H2606 in WG212)
+### Tweeter / Waveguide (ScanSpeak H2606/920000 in WG212)
 
 - On-axis response in the WG212 waveguide mounted in cabinet
 - Horizontal off-axis: 0° to 60° in 10° steps

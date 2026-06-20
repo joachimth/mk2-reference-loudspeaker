@@ -8,7 +8,7 @@ A DIY active 3-way reference loudspeaker project, inspired by Genelec 8361, Dutc
 |---|---|
 | Woofers | 2 × GRS 8SW-4HE-8 (push-push, side-mounted) |
 | Midrange | ScanSpeak 15W/4434G00 |
-| Tweeter | Seas H2606 in WG212 waveguide |
+| Tweeter | ScanSpeak H2606/920000 in WG212 waveguide |
 | Cabinet | 300 × 370 × 1080 mm, 22 mm birch plywood |
 | Front edges | R50 vertical roundovers |
 | Bass volume | ~69 L sealed |

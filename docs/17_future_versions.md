@@ -105,7 +105,7 @@ The Purifi PTT6.5W04-NFA-01 is a 6.5-inch midrange driver with exceptionally low
 
 ### Bliesma tweeter
 
-The Bliesma T25B or T34A are high-performance dome tweeters with very low distortion and extended frequency response. A potential replacement for the Seas H2606 in a higher-performance version.
+The Bliesma T25B or T34A are high-performance dome tweeters with very low distortion and extended frequency response. A potential replacement for the ScanSpeak H2606/920000 in a higher-performance version.
 
 ### Klippel NFS measurements
 

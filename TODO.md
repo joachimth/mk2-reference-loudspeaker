@@ -8,7 +8,7 @@ Inspired by Genelec 8361, Dutch & Dutch 8C and Revel Salon2.
 
 - [x] Select GRS 8SW-4HE-8 woofers
 - [x] Select ScanSpeak 15W/4434G00 midrange
-- [x] Select Seas H2606 tweeter
+- [x] Select ScanSpeak H2606/920000 tweeter
 - [x] Select sealed push-push bass configuration
 - [x] Select 300 mm wide cabinet
 - [x] Select R50 front edge roundovers

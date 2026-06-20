@@ -106,24 +106,21 @@ The vertical c-c spacing to the tweeter/waveguide remains a critical design cons
 
 ---
 
-# DD-006 - Select Seas H2606 tweeter in waveguide
+# DD-006 - Select ScanSpeak H2606/920000 tweeter in WG212 waveguide
 
 ## Decision
 
-Use Seas H2606 in a custom waveguide.
+Use ScanSpeak H2606/920000 (Discovery, horn dome, textile) in the custom WG212 waveguide.
 
 ## Reasoning
 
-A waveguide is needed to:
+The H2606/920000 is a horn-loaded tweeter with high sensitivity (95.2 dB / 2.83V), low excursion requirements, and a soft textile dome character. The built-in horn already provides some directivity control. The custom WG212 extends this to better match the midrange directivity at 1250 Hz and optimizes the radiation pattern for the cabinet geometry.
 
-- Improve directivity match to the midrange
-- Reduce tweeter excursion near crossover
-- Improve power response
-- Allow lower crossover frequency than a bare dome would normally support
+The driver's Fs of 1030 Hz means the 1250 Hz crossover is 220 Hz above resonance - this must be verified by distortion measurement.
 
 ## Consequence
 
-The final crossover frequency must be validated by distortion measurements of H2606 in the actual printed waveguide.
+The WG212 throat diameter must be designed specifically for the H2606/920000 dome and surround geometry. The high sensitivity (95.2 dB) requires approximately 7 dB of DSP attenuation relative to the midrange channel. The final crossover frequency must be validated by distortion measurements of the H2606/920000 in the actual printed waveguide.
 
 ---
 

@@ -13,7 +13,7 @@ The design bible is a living document. It will be updated as the project progres
 - Active 3-way loudspeaker with DSP crossovers
 - 2 × GRS 8SW-4HE-8 woofers (side-mounted push-push)
 - ScanSpeak 15W/4434G00 midrange
-- Seas H2606 tweeter in WG212 waveguide
+- ScanSpeak H2606/920000 tweeter in WG212 waveguide
 - Cabinet: 300 × 370 × 1080 mm, 22 mm birch plywood, R50 front roundovers
 - Bass: ~69 L sealed, Fc ~34.5 Hz, Qtc ~0.62
 - Crossovers: 150 Hz LR4 (bass/mid), 1250 Hz LR4 (mid/tweeter)

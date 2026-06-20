@@ -47,7 +47,7 @@ Current main design:
 - R50 front roundovers
 - 2 x GRS 8SW-4HE-8 side-mounted push-push woofers
 - ScanSpeak 15W/4434G00 midrange
-- Seas H2606 tweeter
+- ScanSpeak H2606/920000 tweeter
 - WG212 waveguide
 - Approx. 69 L sealed bass volume
 - Approx. 5.7 L sealed mid chamber

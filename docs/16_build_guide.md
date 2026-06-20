@@ -59,7 +59,7 @@ Before starting the build:
 |---|---|
 | GRS 8SW-4HE-8 | 2 |
 | ScanSpeak 15W/4434G00 | 1 |
-| Seas H2606 | 1 |
+| ScanSpeak H2606/920000 | 1 |
 | WG212 printed waveguide | 1 |
 
 ---

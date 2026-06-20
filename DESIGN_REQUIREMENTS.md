@@ -12,7 +12,7 @@
 
 - 2 × GRS 8SW-4HE-8
 - ScanSpeak 15W/4434G00
-- Seas H2606
+- ScanSpeak H2606/920000
 - WG212
 
 ## Cabinet

@@ -34,10 +34,10 @@ At the crossover frequency, two drivers of different sizes transition between ea
 
 For the mid/tweeter crossover at 1250 Hz:
 - The ScanSpeak 15W midrange at 1250 Hz radiates over a moderate angle (the ~120 mm cone diameter is beginning to narrow the pattern)
-- The Seas H2606 bare dome at 1250 Hz radiates nearly omnidirectionally
-- This mismatch would cause a directivity step
+- The ScanSpeak H2606/920000 already has a built-in horn that provides some directivity control, but its pattern may still be broader than the 15W midrange at 1250 Hz
+- Without the WG212, a directivity step may still be present at the crossover frequency
 
-The WG212 waveguide narrows the H2606 radiation pattern to approximately match the 15W at the crossover frequency. The waveguide is the key tool for eliminating this directivity mismatch.
+The WG212 waveguide is designed to extend and optimize the H2606/920000 horn's directivity control, narrowing the pattern to better match the 15W at the crossover frequency.
 
 ### Vertical lobing
 

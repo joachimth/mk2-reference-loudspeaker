@@ -15,7 +15,7 @@ See Chapter 14 (DSP) for the full DSP implementation. This chapter covers the cr
 | Crossover | Frequency | Slope | Drivers |
 |---|---|---|---|
 | Bass / midrange | 150 Hz | LR4 (24 dB/oct) | GRS woofers → ScanSpeak 15W |
-| Midrange / tweeter | 1250 Hz | LR4 (24 dB/oct) | ScanSpeak 15W → Seas H2606 / WG212 |
+| Midrange / tweeter | 1250 Hz | LR4 (24 dB/oct) | ScanSpeak 15W → ScanSpeak H2606/920000 / WG212 |
 
 ---
 
