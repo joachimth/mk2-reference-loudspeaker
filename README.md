@@ -62,6 +62,7 @@ The full Design Bible lives in the `docs/` folder:
 - [CHANGELOG.md](CHANGELOG.md) - Design change log
 - [REFERENCES.md](REFERENCES.md) - Books, papers, tools
 - [TODO.md](TODO.md) - Outstanding tasks
+- [assets/](assets/) - Drawings, response plot, and DSP table (reference material; see [assets/README.md](assets/README.md) — note these depict an SB23 study that diverges from the v6b spec)
 
 ## License
 
