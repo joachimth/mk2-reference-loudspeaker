@@ -57,6 +57,11 @@ The latest simplified spinorama/directivity simulations suggest that lowering th
   (`show_waveguide`) and explicit `eps` cut overshoots so openings render cleanly
   — coincident faces otherwise smear in OpenSCAD instead of showing a hole. The
   seated mouth pokes `wg_through` mm through the baffle so the solids overlap.
+- Corrected the flush-termination boolean in `mk2_waveguide_os.scad`: the earlier
+  full-depth straight mouth cut removed the rolled bore wall and left the flange
+  disconnected (visible as a gap in an exported STL). The bore subtraction now
+  opens the mouth along the rolled profile with only a hair-thin front-face
+  pierce, so the wall runs continuously into the flange and the mouth stays flush.
 - All CAD/simulation outputs are simulation-stage estimates, not measured or final.
 
 ## v6 - Directivity optimization

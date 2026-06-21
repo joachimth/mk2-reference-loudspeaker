@@ -120,10 +120,14 @@ module waveguide(){
         }
         loft_bore(0);                                // hollow out acoustic bore
 
-        // clear the mouth opening through the rearward flange, up to the flush
-        // plane at z = D_tot (the baffle face) - no forward straight lip
-        translate([0,0,D_tot-flange_thick-0.5])
-            linear_extrude(flange_thick+0.6)
+        // The bore subtraction already opens the mouth through the rearward
+        // flange ALONG THE ROLLED PROFILE, so no full-depth straight cut is
+        // needed (one would remove radius mouth_r across the whole roll region,
+        // eat the thin rolled wall and leave the flange disconnected from the
+        // bore). Only pierce the very front face by a hair so the opening is
+        // manifold/flush.
+        translate([0,0,D_tot-0.3])
+            linear_extrude(0.6)
                 ellipse_2d(mouth_rx, mouth_ry);
 
         // rear faceplate clearance for the tweeter
