@@ -49,6 +49,10 @@ The latest simplified spinorama/directivity simulations suggest that lowering th
 - Added simulations `bass_volume_compare.py` (64–72 L alignment + group delay;
   confirms Qtc ~0.62 / Fc ~34.5 at 69 L and tolerance-robustness) and
   `directivity_estimate.py` (DI step vs crossover — quantifies DD-010 / REVIEW §C2).
+- Fixed a sharp waveguide-mouth-to-baffle edge in `cad/mk2_waveguide_os.scad`
+  (flange moved behind the flush mouth plane, removing the forward lip that would
+  diffract) and added `simulations/waveguide_profile.py` illustrating the issue
+  and the flush / blended fixes.
 - All CAD/simulation outputs are simulation-stage estimates, not measured or final.
 
 ## v6 - Directivity optimization

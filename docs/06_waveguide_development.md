@@ -120,6 +120,18 @@ The WG212 flange must integrate cleanly with the front baffle:
 
 - The flange should sit flush or slightly recessed into the baffle
 - The baffle around the waveguide should be as smooth as possible (no sharp edges near the waveguide mouth)
+
+**Mouth termination (avoid a sharp edge).** The waveguide must reach the baffle
+*flush and tangent* — any forward lip or 90° step at the mouth diffracts and
+shows up as off-axis / spinorama ripple, defeating the waveguide's purpose. The
+first revision of `../cad/mk2_waveguide_os.scad` placed the mounting flange
+forward of the mouth plane with a straight mouth cut, leaving exactly such a lip;
+this was corrected so the flange sits *behind* the flush mouth plane (see
+[`../simulations/waveguide_profile.py`](../simulations/waveguide_profile.py) and
+`../simulations/plots/waveguide_termination.png`). For an even smoother transition
+the mouth roundover can be enlarged (parameter `Lr`) so it rolls into the baffle
+with continuous curvature, and the baffle opening itself should carry a matching
+roundover.
 - The midrange cutout is immediately below the waveguide; the gap between them sets the c-c distance
 - The nominal c-c target is 140 mm, but the realistic buildable value is ~150 mm
   (DD-011 caveat); the narrow vertical mouth (~121 mm) of the asymmetric WG212

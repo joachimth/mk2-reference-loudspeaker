@@ -259,4 +259,7 @@ The ~1620 Hz control limit sits above the v6b nominal 1250 Hz target, reinforcin
 the DD-010 caveat: the crossover may need to rise toward ~1500-1700 Hz once the
 printed waveguide is measured. The ~75 mm depth must be accommodated behind the
 baffle, and the 28 mm throat must be verified against the physical H2606 before
-printing. This is simulation-stage geometry, not validated by measurement.
+printing. The mouth must terminate **flush** with the baffle (no forward lip or
+sharp edge) to avoid diffraction; the model was corrected to seat the flange
+behind the flush mouth plane (see docs/06 and `simulations/waveguide_profile.py`).
+This is simulation-stage geometry, not validated by measurement.

@@ -22,6 +22,12 @@ with a tangent rolled mouth that ends flush with the baffle.
   test pieces against the physical tweeter first.
 - The mouth roundover must blend smoothly into the cabinet's baffle roundover;
   a step there re-introduces diffraction.
+- **Mouth-to-baffle termination:** the flange now sits *behind* the flush mouth
+  plane so the bore meets the baffle with no forward lip (an earlier version left
+  a sharp 90° edge there — a diffraction source). `Lr` controls the mouth
+  roundover; increase it for an even gentler baffle blend at the cost of depth.
+  See [`../simulations/waveguide_profile.py`](../simulations/waveguide_profile.py)
+  and `plots/waveguide_termination.png`.
 
 ### Building
 
