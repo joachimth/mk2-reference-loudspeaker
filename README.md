@@ -21,9 +21,15 @@ A DIY active 3-way reference loudspeaker project, inspired by Genelec 8361, Dutc
 
 ## Project Status
 
-Design candidate v6b is selected. Physical prototype not yet started.
+[![Run simulations](https://github.com/joachimth/mk2-reference-loudspeaker/actions/workflows/simulations.yml/badge.svg)](https://github.com/joachimth/mk2-reference-loudspeaker/actions/workflows/simulations.yml)
+[![Render CAD models](https://github.com/joachimth/mk2-reference-loudspeaker/actions/workflows/cad-render.yml/badge.svg)](https://github.com/joachimth/mk2-reference-loudspeaker/actions/workflows/cad-render.yml)
 
-Next steps: waveguide CAD, cabinet CAD, prototype build, measurements.
+Design candidate **v6b** is selected. CAD models and simulations are complete.
+Physical prototype not yet started.
+
+**Current gate:** Print WG212 waveguide → measure H2606 distortion at 1250 Hz → confirm crossover frequency → build prototype.
+
+See [`PROJECT_TODO.md`](PROJECT_TODO.md) for the full task list and dependency graph.
 
 ## Documentation
 

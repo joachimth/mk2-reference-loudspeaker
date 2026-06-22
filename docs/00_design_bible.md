@@ -25,20 +25,20 @@ The design bible is a living document. It will be updated as the project progres
 
 | # | Title | File | Status |
 |---|---|---|---|
-| 1 | Project goals and philosophy | [01_project_goals.md](01_project_goals.md) | Draft |
-| 2 | Loudspeaker theory | [02_theory.md](02_theory.md) | Draft |
-| 3 | Woofer investigations | [03_woofer_selection.md](03_woofer_selection.md) | Draft |
-| 4 | Midrange investigations | [04_midrange_selection.md](04_midrange_selection.md) | Draft |
-| 5 | Tweeter investigations | [05_tweeter_selection.md](05_tweeter_selection.md) | Draft |
-| 6 | Waveguide development | [06_waveguide_development.md](06_waveguide_development.md) | Draft |
-| 7 | Cabinet development | [07_cabinet_development.md](07_cabinet_development.md) | Draft |
-| 8 | Push-push bass | [08_push_push_bass.md](08_push_push_bass.md) | Draft |
-| 9 | Volume calculations | [09_volume_calculations.md](09_volume_calculations.md) | Draft |
-| 10 | Bracing | [10_bracing.md](10_bracing.md) | Draft |
-| 11 | Crossovers | [11_crossovers.md](11_crossovers.md) | Draft |
-| 12 | Directivity | [12_directivity.md](12_directivity.md) | Draft |
-| 13 | Spinorama | [13_spinorama.md](13_spinorama.md) | Draft |
-| 14 | DSP | [14_dsp.md](14_dsp.md) | Draft |
-| 15 | Measurements | [15_measurements.md](15_measurements.md) | Draft |
-| 16 | Build guide | [16_build_guide.md](16_build_guide.md) | Draft |
-| 17 | Future versions | [17_future_versions.md](17_future_versions.md) | Draft |
+| 1 | Project goals and philosophy | [01_project_goals.md](01_project_goals.md) | Complete |
+| 2 | Loudspeaker theory | [02_theory.md](02_theory.md) | Complete |
+| 3 | Woofer investigations | [03_woofer_selection.md](03_woofer_selection.md) | Complete |
+| 4 | Midrange investigations | [04_midrange_selection.md](04_midrange_selection.md) | Complete |
+| 5 | Tweeter investigations | [05_tweeter_selection.md](05_tweeter_selection.md) | Complete |
+| 6 | Waveguide development | [06_waveguide_development.md](06_waveguide_development.md) | Complete (CAD done; print + measure pending) |
+| 7 | Cabinet development | [07_cabinet_development.md](07_cabinet_development.md) | Complete (CAD done; build pending) |
+| 8 | Push-push bass | [08_push_push_bass.md](08_push_push_bass.md) | Complete |
+| 9 | Volume calculations | [09_volume_calculations.md](09_volume_calculations.md) | Complete |
+| 10 | Bracing | [10_bracing.md](10_bracing.md) | Complete (representational CAD; detail pending build) |
+| 11 | Crossovers | [11_crossovers.md](11_crossovers.md) | Complete (frequency pending distortion measurement) |
+| 12 | Directivity | [12_directivity.md](12_directivity.md) | Complete |
+| 13 | Spinorama | [13_spinorama.md](13_spinorama.md) | Complete (estimated; true spinorama pending build) |
+| 14 | DSP | [14_dsp.md](14_dsp.md) | Complete (platform not yet selected) |
+| 15 | Measurements | [15_measurements.md](15_measurements.md) | Plan written; execution pending prototype |
+| 16 | Build guide | [16_build_guide.md](16_build_guide.md) | Plan written; execution not started |
+| 17 | Future versions | [17_future_versions.md](17_future_versions.md) | Complete |

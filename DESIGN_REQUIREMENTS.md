@@ -34,4 +34,6 @@
 
 ## Geometry
 
-- Target 140 mm c-c spacing
+- Target c-c spacing: **140 mm nominal** (WG212 mouth radius ~55 mm + 15W flange radius ~62 mm + gap ~23 mm).
+  In practice ~150–155 mm is expected once the WG212 is printed and the 15W flange is physically measured.
+  Confirm from physical parts before locking the cabinet model.

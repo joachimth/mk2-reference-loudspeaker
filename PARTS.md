@@ -1,84 +1,66 @@
-# Parts
+# Parts — Mk2 Reference Loudspeaker
 
-This is the initial parts overview for Mk2 Reference Loudspeaker.
-
----
-
-# Current v6b Driver Set
-
-## Woofers
-
-- 2 x GRS 8SW-4HE-8 per loudspeaker
-- Side-mounted push-push configuration
-- Suggested wiring: series for 8 ohm total load
-
-## Midrange
-
-- 1 x ScanSpeak 15W/4434G00 per loudspeaker
-- Dedicated sealed mid chamber around 5.7 L net
-
-## Tweeter
-
-- 1 x ScanSpeak H2606/920000 (Discovery, horn dome, textile, 6 Ω, 95.2 dB) per loudspeaker
-- Mounted in custom WG212 waveguide
-- Sensitivity ~5-7 dB higher than midrange (~89.7 dB) - DSP attenuation required
+All quantities and prices are **per pair** unless noted otherwise.
+Prices are indicative (sourced June 2026); verify before ordering.
 
 ---
 
-# Cabinet Materials
+## Drivers
 
-## Main cabinet
+| Part | Qty/pair | Unit price | Supplier | Notes |
+|---|---|---|---|---|
+| GRS 8SW-4HE-8 (8" woofer) | 4 | ~€45 | Parts-Express | 2 per enclosure, push-push |
+| ScanSpeak 15W/4434G00 (midrange) | 2 | ~€120 | Scan-Speak / Hifi-Skabet | — |
+| ScanSpeak H2606/920000 (tweeter) | 2 | ~€90 | Scan-Speak / Hifi-Skabet | Mounted in WG212 waveguide |
 
-- 22 mm birch plywood
-- Approx. external dimensions: 300 x 370 x 1080 mm
-- Large R50 vertical front roundovers
-- R20-R30 rear/top/bottom roundovers or chamfers as practical
+## Waveguide
 
-## Bracing
+| Part | Qty/pair | Notes |
+|---|---|---|
+| WG212 oblate-spheroid waveguide | 2 | 3D print from `cad/mk2_waveguide_os.scad`. **throat_d = 28 mm is placeholder** — verify against physical H2606 dome before printing final version. Use SLA/MSLA for surface finish. |
 
-- Shelf/window braces
-- Vertical braces behind baffle/side panels as required
+## Cabinet
 
-## Damping
+| Part | Notes |
+|---|---|
+| 22 mm birch plywood | ~3 sheets per cabinet (verify cut list from `assets/mk2_stykliste.csv`). Standard 1220 × 2440 mm sheet. |
+| PVA woodworking glue | Titebond III or equivalent |
+| Wood screws + threaded inserts | For driver mounting |
+| Gasket tape (closed-cell foam, 5 mm) | All driver openings |
+| Damping felt/foam | Mid chamber: fully lined. Bass chamber: 50 mm rear/top/sides. |
+| Terminal cup or amplifier plate cutout | Depends on DSP/amp selection |
 
-- Mid chamber: fully damped but not overstuffed
-- Bass chamber: moderate damping/lining, finalized after measurements
+Approximate external dimensions (v6b): **300 × 370 × 1080 mm**, 22 mm walls, R50 front roundovers.
 
----
+## Electronics / DSP
 
-# Electronics
+Platform **not yet selected**. Three leading candidates:
 
-To be decided.
+| Option | Notes |
+|---|---|
+| **MiniDSP 4×10 HD** | Easiest integration path. USB/optical in, 10 outputs. Well-documented with REW export. |
+| **Hypex FusionAmp FA123 / FA253** | Integrated DSP + plate amp. Clean install, higher cost. |
+| **ADAU1452-based custom board** | Full flexibility, lowest cost at scale, requires firmware work. |
 
-Possible DSP/amplifier routes:
+Select after prototype measurements. MiniDSP 4×10 HD is recommended for initial prototyping.
 
-- MiniDSP-based prototype
-- Hypex FusionAmp
-- ADAU1452-based custom DSP
-- Separate multichannel amplifier + external DSP
+## DSP Filter Plan (v6b target)
 
----
+From `assets/mk2_dsp.csv` (SB23 study reference — filter frequencies differ from v6b; use for structure only):
 
-# Cables and Hardware
+| Driver path | Filters |
+|---|---|
+| Woofer (×2) | Subsonic HP ~18 Hz LR4, Linkwitz Transform (Fc ~28 Hz, Q 0.71), LP 150 Hz LR4, polarity/delay |
+| Midrange | HP 150 Hz LR4, LP 1250 Hz LR4, delay |
+| Tweeter | HP 1250 Hz LR4, level trim ~-5 to -7 dB (sensitivity mismatch), delay |
 
-To be specified.
+**Note:** 1250 Hz crossover frequency is **unconfirmed** — depends on H2606 distortion measurement in the WG212. Fallback options: 1350 / 1450 / 1600 Hz (see `simulations/vertical_polar_map.py`).
 
-Expected requirements:
+## Open Items
 
-- Internal speaker cable
-- Driver mounting screws
-- Threaded inserts
-- Gasket tape
-- Terminal plate or amplifier cutout
-- Optional mechanical coupling hardware for push-push woofers
-
----
-
-# Open items
-
-- Verify exact GRS cutout and frame dimensions
-- Verify exact H2606 mounting geometry
-- Verify WG212 CAD dimensions
-- Verify 15W mounting depth and chamber clearance
-- Select amplifier/DSP platform
-- Select damping materials
+- [ ] Confirm throat_d against physical H2606 → update `cad/mk2_waveguide_os.scad`
+- [ ] Print WG212 prototype → fit-check against H2606 and 15W/4434G00
+- [ ] Measure H2606 distortion at 1250 Hz → confirm or adjust crossover
+- [ ] Confirm actual c-c spacing (nominal 140 mm; expect ~150–155 mm from physical parts)
+- [ ] Select and order DSP/amplifier platform
+- [ ] Finalize cut list from CAD model before ordering sheet material

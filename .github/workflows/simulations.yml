@@ -35,7 +35,7 @@ jobs:
 
       - name: Install Python dependencies
         run: |
-          pip install --quiet numpy matplotlib
+          pip install --quiet "numpy>=1.26,<3" "matplotlib>=3.8,<4"
 
       # ------------------------------------------------------------------ #
       #  3. Run all simulation scripts                                      #
@@ -83,6 +83,10 @@ jobs:
         working-directory: simulations
         run: python design_versions_comparison.py 2>&1
 
+      - name: Run baffle_step.py
+        working-directory: simulations
+        run: python baffle_step.py 2>&1
+
       # ------------------------------------------------------------------ #
       #  4. List generated plots and CSV files (sanity check)             #
       # ------------------------------------------------------------------ #
@@ -110,7 +114,8 @@ jobs:
           Scripts: bass_alignment_maxspl, bass_volume_compare, waveguide_profile,
                    directivity_estimate, vertical_lobing,
                    crossover_simulation, system_response, polar_response,
-                   vertical_polar_map, design_versions_comparison"
+                   vertical_polar_map, design_versions_comparison,
+                   baffle_step"
           git push
 
       # ------------------------------------------------------------------ #

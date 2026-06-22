@@ -41,9 +41,9 @@ waveguide model is in [../cad/mk2_waveguide_os.scad](../cad/mk2_waveguide_os.sca
 | File | What it is |
 |---|---|
 | [mk2_design_bible_sb23.md](mk2_design_bible_sb23.md) | **The SB23 study's full design write-up** (Danish): OS waveguide, ~1600 Hz LR4, c-c ~157–160 mm, 2 × SB23 sealed ~64 L (Qtc ≈ 0.75 / Fc ≈ 54 Hz). Textual companion to the drawings. Alternative direction, **not** the repo's v6b spec. |
-| [mk2_parametre.csv](mk2_parametre.csv) | Parameter list for the SB23 study (cabinet, alignment, waveguide, crossovers). |
-| [mk2_stykliste.csv](mk2_stykliste.csv) | Cut list / bill of materials for the SB23 cabinet (panel sizes, bracing, magnet coupling rod). |
-| [mk2_dsp.csv](mk2_dsp.csv) | DSP filter plan per driver (HP/LP, Linkwitz Transform, delay, rest-EQ). |
+| [mk2_parametre.csv](mk2_parametre.csv) | Parameter list for the SB23 study (cabinet, alignment, waveguide, crossovers). Columns: `Parameter` (name, Danish), `Værdi` (value with unit inline). |
+| [mk2_stykliste.csv](mk2_stykliste.csv) | Cut list / bill of materials for the SB23 cabinet (panel sizes, bracing, magnet coupling rod). Columns: `Del` (part name), `Antal` (qty), `Mål (mm)` (dimensions), `Materiale` (material), `Bemærkning` (notes). |
+| [mk2_dsp.csv](mk2_dsp.csv) | DSP filter plan per driver (HP/LP, Linkwitz Transform, delay, rest-EQ). Columns: `Vej` (signal path / driver), `Filter` (filter type and name), `Frekvens` (frequency or parameter), `Type` (filter topology: LR4, LT, PEQ, delay), `Formål` (purpose / rationale). |
 
 ### Drawings
 

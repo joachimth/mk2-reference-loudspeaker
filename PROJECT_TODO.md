@@ -28,21 +28,21 @@ Grouped by area. The critical path to prototype is marked 🔴.
 
 ## Documentation fixes (known errors)
 
-- [ ] **README.md "Next steps"** — still says "waveguide CAD, cabinet CAD". Both are done. Update to reflect current state: "Print WG212, measure, build prototype."
-- [ ] **`docs/00_design_bible.md` chapter status column** — all chapters marked "Draft". Mark the ones that are actually complete (most are well-written). Suggested: ch 1-14 → "Complete (pre-measurement)", ch 15-17 → "Pending prototype".
-- [ ] **`simulations/README.md`** — only lists the 5 original scripts. The 4 new scripts (`crossover_simulation`, `system_response`, `polar_response`, `vertical_polar_map`) and `design_versions_comparison` are missing from the table.
-- [ ] **DESIGN_REQUIREMENTS.md** — `c-c spacing` still says 140 mm. Align with realistic 150-155 mm once confirmed from printed WG212.
-- [ ] **PARTS.md** — no pricing, no quantities-per-pair, no supplier links. Useful to add before ordering. Currently open items section has no status updates despite driver spec fixes elsewhere.
-- [ ] **`assets/README.md`** — good disclaimer about SB23 assets, but `mk2_dsp.csv` and `mk2_parametre.csv` have no explanation of what their columns mean.
+- [x] **README.md "Next steps"** — updated to current state: print WG212 → measure → build prototype. CI badges added.
+- [x] **`docs/00_design_bible.md` chapter status column** — all 17 chapters now have accurate status (Complete / Plan written / etc.).
+- [x] **`simulations/README.md`** — all 11 scripts now in the table, including `crossover_simulation`, `system_response`, `polar_response`, `vertical_polar_map`, `design_versions_comparison`, `baffle_step`.
+- [x] **DESIGN_REQUIREMENTS.md** — c-c entry now notes 140 mm nominal vs ~150–155 mm expected from physical parts.
+- [x] **PARTS.md** — quantities per pair, indicative pricing, supplier notes, DSP platform candidates and open items added.
+- [x] **`assets/README.md`** — column descriptions added for `mk2_dsp.csv`, `mk2_parametre.csv`, `mk2_stykliste.csv`.
 
 ---
 
 ## Simulations — open tasks
 
 - [ ] **Update `system_response.py` tweeter model** once H2606-in-WG212 is measured. The current tanh step is a placeholder — swap it for a polynomial fit to the real FR.
-- [ ] **Add DSP EQ / Linkwitz Transform to `bass_alignment_maxspl.py`** — script shows the raw sealed rolloff. Show the DSP-corrected response with a Linkwitz Transform to e.g. Fc=28 Hz, Q=0.707.
-- [ ] **Add baffle step simulation** — 365 Hz step for a 300 mm wide cabinet is significant (+6 dB). Currently not modelled in any script. Useful before DSP configuration.
-- [ ] **Group delay plot** — `bass_volume_compare.py` mentions group delay in its title but the plot only shows sealed response curves. Add a group delay subplot.
+- [x] **Add DSP EQ / Linkwitz Transform to `bass_alignment_maxspl.py`** — already present (line 81).
+- [x] **Add baffle step simulation** — `baffle_step.py` added. Vanderkooy single-pole model, 300 mm wide cabinet, f_bs ≈ 325 Hz. PNG + CSV output.
+- [x] **Group delay plot** — `bass_volume_compare.py` already has a group delay subplot (ax2).
 - [ ] **Import measured data** into simulation scripts once prototype is built — spinorama.csv, polar_horizontal.csv will become comparison targets.
 
 ---
@@ -60,8 +60,8 @@ Grouped by area. The critical path to prototype is marked 🔴.
 ## CI/CD — minor improvements
 
 - [ ] **`cad-render.yml`: add STEP export** once an OpenSCAD→STEP pipeline is confirmed (OpenSCAD 2021.01 supports `--export-format binstl`; STEP requires either a newer version or FreeCAD scripting).
-- [ ] **`simulations.yml`: pin numpy + matplotlib versions** to avoid future CI breakage (currently installs latest).
-- [ ] **Add a `README.md` badge** for the simulations workflow status (green/red) — makes health visible at a glance.
+- [x] **`simulations.yml`: pin numpy + matplotlib versions** — now `>=1.26,<3` and `>=3.8,<4`.
+- [x] **Add a `README.md` badge** for the simulations workflow status — both CI badges added to README Project Status section.
 - [ ] **`cad-render.yml` camera angles** — review after first render run; adjust if the views aren't informative.
 
 ---
