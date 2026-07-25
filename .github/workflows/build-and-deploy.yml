@@ -518,3 +518,58 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # ============================================================
+      #  6. Auto-release (cad-rNN, incremented per run)
+      # ============================================================
+      - name: Create auto-release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Find the latest cad-rNN tag and increment
+          LATEST_TAG=$(git tag --list 'cad-r*' --sort=-v:refname | head -1)
+          if [ -z "$LATEST_TAG" ]; then
+            NEXT_NUM=1
+          else
+            NEXT_NUM=$((${LATEST_TAG#cad-r} + 1))
+          fi
+          NEXT_TAG="cad-r$(printf '%02d' $NEXT_NUM)"
+          echo "Latest tag: ${LATEST_TAG:-none} → Next: $NEXT_TAG"
+
+          # Short commit message for release title
+          COMMIT_MSG=$(git log -1 --pretty=%s | head -c 80)
+
+          # Create release with CAD files + datasheets as assets
+          gh release create "$NEXT_TAG" \
+            --title "CAD Export #$NEXT_NUM" \
+            --notes "$(cat <<EOF
+          Auto-release from CI pipeline.
+
+          **Commit:** ${COMMIT_MSG}
+
+          ### Included files
+          - CAD source files (cad/*.scad)
+          - Datasheet references (assets/datasheets/*.md)
+          - DSP configs (dsp-configs/*.xml)
+          - Cabinet drawings (assets/drawings/*.pdf)
+          - 3D reference files (assets/cad/*.stp, *.stl)
+
+          Generated: $(date -u +%Y-%m-%dT%H:%M:%SZ)
+          EOF
+          )" \
+            --latest
+
+          # Attach key files as release assets
+          gh release upload "$NEXT_TAG" \
+            cad/*.scad \
+            assets/datasheets/*.md \
+            dsp-configs/*.xml \
+            assets/drawings/*.pdf \
+            2>/dev/null || true
+
+          # Attach 3D reference files (may be large)
+          gh release upload "$NEXT_TAG" \
+            assets/cad/*.stp assets/cad/*.STEP assets/cad/*.stl assets/cad/*.STL \
+            2>/dev/null || true
+
+          echo "Created release $NEXT_TAG"
