@@ -8,7 +8,7 @@
 //  version where the bore starts at the Ø33mm horn exit.
 //
 //  Key differences from mk2_waveguide_os.scad (H2606 version):
-//    - throat_d:  28 mm (26mm dome + surround) vs 33 mm (H2606 horn exit)
+//    - throat_d:  32 mm (26mm dome + surround, caliper-verified Jul 25) vs 33 mm (H2606 horn exit)
 //    - tw_face_d: 100.0 mm vs 104.0 mm
 //    - tw_bcd:    88.5 mm vs 95.0 mm
 //    - tw_hole_d: 4.0 mm (same) but with Ø8.0 counterbores
@@ -20,8 +20,8 @@
 //
 //  The OS coverage angles (theta_h=50, theta_v=32) are kept identical
 //  to the H2606 version so the directivity match with the 15W midrange
-//  is comparable. The smaller throat (28 vs 33) produces a marginally
-//  smaller mouth (~289×172 vs 293×174) — negligible difference.
+//  is comparable. The throat (32 vs 33) is now nearly identical to H2606 —
+//  mouth ~293×173 vs 293×174 — negligible difference.
 //
 //  After editing, render with F6 and export STL.
 // =====================================================================
@@ -29,13 +29,13 @@
 $fn = 128;
 
 // ----------------------- MAIN ACOUSTIC PARAMETERS --------------------
-throat_d   = 28;     // SB26STAC dome + surround diameter.
+throat_d   = 32;     // SB26STAC dome + surround diameter (caliper-verified Jul 25).
                      // The SB26STAC has a 26mm dome with no built-in horn.
                      // The OS bore starts directly at the dome edge.
-                     // Ø28mm accounts for the dome + ~1mm surround per side.
+                     // Ø32mm: dome 26mm + ~3mm surround per side (measured 32mm
+                     // on physical unit — the original 28mm estimate was too small).
                      // The faceplate has a Ø53mm recess around the dome —
                      // the bore fills this recess and transitions to OS.
-                     // Verify with calipers on the physical unit.
 theta_h    = 50;     // horizontal half-angle (deg)  -> ~100 deg coverage
 theta_v    = 32;     // vertical   half-angle (deg)  -> ~64  deg coverage
 D_os       = 65;     // depth of the OS (constant-directivity) section
@@ -45,7 +45,7 @@ protrusion = 0;      // flush with baffle back face (same as H2606 version)
 steps      = 96;     // loft resolution along depth
 show_cutaway = false;
 
-// Derived mouth: ~289 x 172 mm (vs 293 x 174 for H2606 version)
+// Derived mouth: ~293 x 173 mm (now nearly identical to H2606 with throat_d=32)
 // Total depth 90 mm (D_os + Lr = 65 + 25, same as H2606).
 
 // ----------------------- FLANGE / MOUNTING ---------------------------
@@ -63,7 +63,11 @@ tw_bcd       = 88.5;   // mounting pitch circle: ø88.5 ±0.10 mm
 tw_hole_d    = 4.0;    // mounting screw hole: ø4.0 mm x4 at 90°
 tw_cb_d      = 8.0;    // counterbore diameter: ø8.0 mm x4 at 90°
 tw_cb_depth  = 2.0;    // counterbore depth (estimated — verify with caliper)
-tw_recess_d  = 53.0;   // faceplate front recess: ø53.0 mm (around dome)
+tw_recess_d  = 43.0;   // faceplate front recess (caliper-verified Jul 25)
+                      // outer edge of recess where faceplate steps down).
+                      // Original datasheet extraction said 53.0 but physical
+                      // unit measures 43.16 mm — datasheet figure was likely
+                      // misread from low-res PDF image. Inner edge = 32mm (throat).
 
 // Tweeter rear mounting plate
 tw_ring_od    = 115;   // outer diameter (tw_bcd/2=44.25 + 13mm material = 57.25 -> ø115)
@@ -172,9 +176,9 @@ module waveguide(){
             cylinder(d=tw_face_d + 1.0, h=tw_fp_recess + 0.5);
 
         // Acoustic throat through-hole in the back plate.
-        // For the SB26STAC, the throat is Ø28mm (dome + surround).
+        // For the SB26STAC, the throat is Ø32mm (dome 26mm + surround, caliper-verified Jul 25).
         // The faceplate has a Ø53mm recess — we fill this with the
-        // waveguide bore, so the bore transitions from Ø28 (dome) to
+        // waveguide bore, so the bore transitions from Ø32 (dome) to
         // the OS profile. The back plate opening matches the throat.
         translate([0, 0, -tw_ring_thick - 1])
             cylinder(d=throat_d, h=tw_ring_thick + 2);

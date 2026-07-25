@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SB26STAC-C000-4 — Målskema</title>
+<style>
+  @page { size: A4; margin: 12mm; }
+  body { font-family: system-ui, -apple-system, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; color: #222; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  h2 { font-size: 16px; margin-top: 28px; margin-bottom: 8px; border-bottom: 2px solid #e85d04; padding-bottom: 4px; }
+  .subtitle { color: #666; font-size: 13px; margin-bottom: 16px; }
+  .driver-info { background: #fff8f0; border: 1px solid #f0c896; border-radius: 8px; padding: 12px 16px; margin-bottom: 20px; font-size: 13px; }
+  .driver-info strong { color: #e85d04; }
+  svg { display: block; margin: 12px auto; max-width: 100%; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 16px; }
+  th { background: #e85d04; color: white; text-align: left; padding: 8px 10px; font-weight: 600; }
+  th.center { text-align: center; }
+  td { padding: 7px 10px; border-bottom: 1px solid #ddd; }
+  tr:nth-child(even) { background: #fafafa; }
+  td.measure { font-family: 'Courier New', monospace; white-space: nowrap; font-weight: 600; }
+  td.expected { font-family: 'Courier New', monospace; white-space: nowrap; }
+  td.verify { width: 120px; }
+  .verify-box { display: inline-block; width: 18px; height: 18px; border: 2px solid #999; border-radius: 3px; vertical-align: middle; margin-right: 6px; }
+  .tol { color: #888; font-size: 11px; }
+  .section-note { font-size: 12px; color: #666; margin-bottom: 10px; font-style: italic; }
+  .legend { font-size: 12px; color: #555; margin: 8px 0 4px 8px; }
+  .legend span { display: inline-block; margin-right: 20px; }
+  .legend .swatch { display: inline-block; width: 14px; height: 3px; vertical-align: middle; margin-right: 4px; }
+  .footnote { font-size: 11px; color: #999; margin-top: 24px; border-top: 1px solid #eee; padding-top: 8px; }
+  .print-btn { background: #e85d04; color: white; border: none; padding: 8px 20px; border-radius: 6px; font-size: 14px; cursor: pointer; margin-bottom: 16px; }
+  .print-btn:hover { background: #c44d03; }
+  @media print { .print-btn { display: none; } }
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">Print / Gem som PDF</button>
+
+<h1>SB26STAC-C000-4 — Målkontrolskema</h1>
+<p class="subtitle">SB Acoustics · 26 mm soft dome diskant · mk3-reference-loudspeaker</p>
+
+<div class="driver-info">
+  <strong>Formål:</strong> Kontroller alle dimensionelle mål på den modtagne diskant med en skydelære,
+  og kryds af i tabellerne nedenfor. Forventede værdier er fra det officielle SB Acoustics-datablad
+  (assets/datasheets/SB26STAC-C000-4.pdf). Tolerance er angivet hvor databladet specificerer den.
+  <br><strong>Kilde:</strong> Montagetegning i datablad PDF + CAD-verifikation (waveguide.scad, commit 79d327a).
+</div>
+
+<!-- =================== FRONT VIEW =================== -->
+<h2>1. Frontvisning — set forfra</h2>
+<p class="section-note">Mål A–E måles på frontpladen (flangen) med skydelære. Mål F tælles.</p>
+
+<svg viewBox="0 0 520 400" width="520" height="400">
+  <!-- Faceplate outer circle -->
+  <circle cx="180" cy="190" r="100" fill="#f5f5f5" stroke="#333" stroke-width="2.5"/>
+  <!-- Recess circle -->
+  <circle cx="180" cy="190" r="53" fill="#e8e8e8" stroke="#666" stroke-width="1.5"/>
+  <!-- Dome -->
+  <circle cx="180" cy="190" r="26" fill="#d4a373" stroke="#8b6914" stroke-width="1.5" opacity="0.7"/>
+  <circle cx="180" cy="190" r="13" fill="#c69959" opacity="0.5"/>
+
+  <!-- 4 mounting holes on BCD 88.5 -->
+  <circle cx="224.25" cy="190" r="4" fill="white" stroke="#333" stroke-width="1.5"/>
+  <circle cx="224.25" cy="190" r="8" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="2,2"/>
+  <circle cx="135.75" cy="190" r="4" fill="white" stroke="#333" stroke-width="1.5"/>
+  <circle cx="135.75" cy="190" r="8" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="2,2"/>
+  <circle cx="180" cy="234.25" r="4" fill="white" stroke="#333" stroke-width="1.5"/>
+  <circle cx="180" cy="234.25" r="8" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="2,2"/>
+  <circle cx="180" cy="145.75" r="4" fill="white" stroke="#333" stroke-width="1.5"/>
+  <circle cx="180" cy="145.75" r="8" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="2,2"/>
+
+  <!-- BCD circle (dashed) -->
+  <circle cx="180" cy="190" r="44.25" fill="none" stroke="#e85d04" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Dimension A: Faceplate OD -->
+  <line x1="180" y1="90" x2="180" y2="290" stroke="#e85d04" stroke-width="1"/>
+  <line x1="170" y1="90" x2="190" y2="90" stroke="#e85d04" stroke-width="1"/>
+  <line x1="170" y1="290" x2="190" y2="290" stroke="#e85d04" stroke-width="1"/>
+  <text x="195" y="195" fill="#e85d04" font-size="13" font-weight="bold">A</text>
+  <text x="195" y="210" fill="#e85d04" font-size="10">100.0</text>
+
+  <!-- Dimension B: Recess OD -->
+  <line x1="290" y1="190" x2="330" y2="190" stroke="#0066cc" stroke-width="1"/>
+  <line x1="290" y1="180" x2="290" y2="200" stroke="#0066cc" stroke-width="1"/>
+  <text x="335" y="188" fill="#0066cc" font-size="12" font-weight="bold">B = 53.0</text>
+
+  <!-- Dimension C: Dome -->
+  <line x1="290" y1="164" x2="320" y2="164" stroke="#8b6914" stroke-width="1"/>
+  <text x="335" y="162" fill="#8b6914" font-size="12" font-weight="bold">C = 26</text>
+
+  <!-- Dimension D: BCD -->
+  <line x1="135.75" y1="120" x2="224.25" y2="120" stroke="#e85d04" stroke-width="1"/>
+  <line x1="135.75" y1="115" x2="135.75" y2="190" stroke="#e85d04" stroke-width="0.5" stroke-dasharray="3,2"/>
+  <line x1="224.25" y1="115" x2="224.25" y2="190" stroke="#e85d04" stroke-width="0.5" stroke-dasharray="3,2"/>
+  <text x="155" y="112" fill="#e85d04" font-size="12" font-weight="bold">D = 88.5 (BCD)</text>
+
+  <!-- Dimension E: Screw hole -->
+  <line x1="224.25" y1="190" x2="255" y2="220" stroke="#333" stroke-width="0.8"/>
+  <text x="258" y="224" fill="#333" font-size="11" font-weight="bold">E = 4.0</text>
+  <text x="258" y="237" fill="#333" font-size="10">+ CBSK 8.0</text>
+
+  <!-- Labels -->
+  <text x="340" y="100" fill="#333" font-size="11">A: Frontplade ØD</text>
+  <text x="340" y="115" fill="#333" font-size="11">B: Recess ØD</text>
+  <text x="340" y="130" fill="#333" font-size="11">C: Dome ØD</text>
+  <text x="340" y="145" fill="#333" font-size="11">D: Hulcirkel (BCD)</text>
+  <text x="340" y="160" fill="#333" font-size="11">E: Skruehul ØD</text>
+  <text x="340" y="175" fill="#333" font-size="11">F: Antal huller</text>
+
+  <!-- Title -->
+  <text x="10" y="30" fill="#333" font-size="14" font-weight="bold">Frontvisning</text>
+  <text x="10" y="48" fill="#666" font-size="11">Set forfra (mod bafflen)</text>
+</svg>
+
+<!-- =================== SIDE VIEW =================== -->
+<h2>2. Sidevisning — snit (monteringsdybde)</h2>
+<p class="section-note">Mål G–H måles med skydelære på siden af enheden, ligget på en flad overflade.</p>
+
+<svg viewBox="0 0 520 300" width="520" height="300">
+  <!-- Faceplate (side view) -->
+  <rect x="150" y="80" width="100" height="5" fill="#ccc" stroke="#333" stroke-width="1.5"/>
+  <!-- Recess indent -->
+  <rect x="177" y="75" width="46" height="5" fill="#e8e8e8" stroke="#666" stroke-width="1"/>
+  <!-- Dome -->
+  <ellipse cx="200" cy="73" rx="13" ry="6" fill="#d4a373" stroke="#8b6914" stroke-width="1" opacity="0.7"/>
+  <!-- Body/basket going back -->
+  <path d="M 152 85 L 152 85 L 155 90 L 165 100 L 250 100 L 252 90 L 250 85 Z" fill="#ddd" stroke="#666" stroke-width="1"/>
+  <!-- Magnet -->
+  <rect x="175" y="100" width="50" height="25" rx="2" fill="#999" stroke="#333" stroke-width="1.5"/>
+  <!-- Rear plate -->
+  <rect x="160" y="125" width="80" height="6" fill="#bbb" stroke="#333" stroke-width="1"/>
+
+  <!-- Dimension G: Total depth -->
+  <line x1="130" y1="69" x2="130" y2="131" stroke="#e85d04" stroke-width="1"/>
+  <line x1="125" y1="69" x2="135" y2="69" stroke="#e85d04" stroke-width="1"/>
+  <line x1="125" y1="131" x2="135" y2="131" stroke="#e85d04" stroke-width="1"/>
+  <text x="115" y="105" fill="#e85d04" font-size="13" font-weight="bold" text-anchor="end">G</text>
+  <text x="115" y="120" fill="#e85d04" font-size="10" text-anchor="end">39.7</text>
+
+  <!-- Dimension H: Faceplate thickness -->
+  <line x1="280" y1="75" x2="280" y2="80" stroke="#0066cc" stroke-width="1"/>
+  <line x1="275" y1="75" x2="285" y2="75" stroke="#0066cc" stroke-width="1"/>
+  <line x1="275" y1="80" x2="285" y2="80" stroke="#0066cc" stroke-width="1"/>
+  <text x="290" y="82" fill="#0066cc" font-size="11" font-weight="bold">H = 4.0 mm</text>
+
+  <!-- Dimension I: Recess depth -->
+  <line x1="280" y1="70" x2="280" y2="75" stroke="#8b6914" stroke-width="1"/>
+  <text x="290" y="73" fill="#8b6914" font-size="11" font-weight="bold">I (recess)</text>
+
+  <!-- Dimension J: Mounting depth -->
+  <line x1="130" y1="85" x2="130" y2="125" stroke="#2a7a2a" stroke-width="1"/>
+  <line x1="125" y1="85" x2="135" y2="85" stroke="#2a7a2a" stroke-width="1"/>
+  <line x1="125" y1="125" x2="135" y2="125" stroke="#2a7a2a" stroke-width="1"/>
+  <text x="105" y="108" fill="#2a7a2a" font-size="11" font-weight="bold" text-anchor="end">J=33.2</text>
+
+  <!-- Dimension N: Basket diameters -->
+  <line x1="165" y1="150" x2="235" y2="150" stroke="#333" stroke-width="1"/>
+  <text x="180" y="165" fill="#333" font-size="11" font-weight="bold">N: Ø70.0 / Ø82.8</text>
+
+  <!-- Labels -->
+  <text x="10" y="30" fill="#333" font-size="14" font-weight="bold">Sidevisning (snit)</text>
+  <text x="10" y="48" fill="#666" font-size="11">Total dybde set fra siden</text>
+
+  <!-- Callouts -->
+  <text x="340" y="90" fill="#333" font-size="11">G: Total dybde</text>
+  <text x="340" y="105" fill="#333" font-size="11">H: Frontplade tykkelse</text>
+  <text x="340" y="120" fill="#333" font-size="11">I: Recess dybde</text>
+  <text x="340" y="135" fill="#333" font-size="11">J: Monteringsdybde</text>
+  <text x="340" y="150" fill="#333" font-size="11">N: Kurv/magnet ØD</text>
+</svg>
+
+<!-- =================== MOUNTING / WAVEGUIDE =================== -->
+<h2>3. Bølgeliste-montage (waveguide)</h2>
+<p class="section-note">Mål K–L relaterer sig til hvordan diskanten sidder i den 3D-printede bølgeliste (waveguide.scad).</p>
+
+<svg viewBox="0 0 520 250" width="520" height="250">
+  <!-- Waveguide outline (simplified) -->
+  <path d="M 100 180 L 100 120 Q 100 60, 160 60 L 340 60 Q 400 60, 400 120 L 400 180 Z"
+        fill="#e8f0e8" stroke="#2a7a2a" stroke-width="1.5"/>
+  <!-- Throat -->
+  <ellipse cx="250" cy="60" rx="14" ry="5" fill="#d4a373" stroke="#8b6914" stroke-width="1" opacity="0.7"/>
+  <!-- Tweeter faceplate (in waveguide) -->
+  <rect x="200" y="180" width="100" height="5" fill="#ccc" stroke="#333" stroke-width="1"/>
+  <!-- Tweeter body -->
+  <rect x="210" y="185" width="80" height="40" fill="#ddd" stroke="#666" stroke-width="1"/>
+
+  <!-- Dimension K: Throat -->
+  <line x1="236" y1="40" x2="264" y2="40" stroke="#e85d04" stroke-width="1"/>
+  <line x1="236" y1="35" x2="236" y2="60" stroke="#e85d04" stroke-width="0.5" stroke-dasharray="3,2"/>
+  <line x1="264" y1="35" x2="264" y2="60" stroke="#e85d04" stroke-width="0.5" stroke-dasharray="3,2"/>
+  <text x="244" y="32" fill="#e85d04" font-size="12" font-weight="bold">K = 28</text>
+
+  <!-- Dimension L: Faceplate in waveguide pocket -->
+  <line x1="200" y1="195" x2="300" y2="195" stroke="#0066cc" stroke-width="1"/>
+  <text x="220" y="210" fill="#0066cc" font-size="11" font-weight="bold">L = 100.0 (flange)</text>
+
+  <!-- Dimension M: BCD mounting -->
+  <line x1="211" y1="240" x2="289" y2="240" stroke="#333" stroke-width="1"/>
+  <text x="225" y="234" fill="#333" font-size="11" font-weight="bold">M = 88.5 (BCD)</text>
+
+  <!-- Labels -->
+  <text x="10" y="30" fill="#333" font-size="14" font-weight="bold">Bølgeliste-montering</text>
+  <text x="10" y="48" fill="#666" font-size="11">Diskant i waveguide (schematic)</text>
+
+  <text x="340" y="100" fill="#333" font-size="11">K: Throat ØD (dome+surround)</text>
+  <text x="340" y="115" fill="#333" font-size="11">L: Flange i waveguide-lomme</text>
+  <text x="340" y="130" fill="#333" font-size="11">M: Hulcirkel til skruer</text>
+  <text x="340" y="145" fill="#333" font-size="11">   4× Ø4.0 + Ø8.0 CBSK</text>
+</svg>
+
+<!-- =================== TABLE 1: MECHANICAL =================== -->
+<h2>4. Mekaniske mål — verificeringstabel</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Beskrivelse</th>
+      <th class="center">Forventet</th>
+      <th class="center">Tolerance</th>
+      <th class="center">Målt</th>
+      <th class="center">OK?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="measure">A</td>
+      <td>Frontplade, udvendig diameter (faceplate OD)</td>
+      <td class="expected">100.0 mm</td>
+      <td class="tol">±0.35</td>
+      <td>______ mm</td>
+      <td class="verify"><span class="verify-box"></span></td>
+    </tr>
+    <tr>
+      <td class="measure">B</td>
+      <td>Recess omkring dome (ydre kant, hvor frontpladen træder ned)</td>
+      <td class="expected">43.0 mm</td>
+      <td class="tol">caliper</td>
+      <td>______ mm</td>
+      <td class="verify"><span class="verify-box"></span></td>
+    </tr>
+    <tr>
+      <td class="measure">C</td>
+      <td>Dome diameter (selve dommemembranen)</td>
+      <td class="expected">26 mm</td>
+      <td class="tol">—</td>
+      <td>______ mm</td>
+      <td class="verify"><span class="verify-box"></span></td>
+    </tr>
+    <tr>
+      <td class="measure">D</td>
+      <td>Hulcirkel / BCD (bolt circle diameter, 4 huller)</td>
+      <td class="expected">88.5 mm</td>
+      <td class="tol">±0.10</td>
+      <td>______ mm</td>
+      <td class="verify"><span class="verify-box"></span></td>
+    </tr>
+    <tr>
+      <td class="measure">E</td>
+      <td>Skruehul diameter (4 stk)</td>
+      <td class="expected">4.0 mm</td>
+      <td class="tol">+0.20/0</td>
+      <td>______ mm</td>
+      <td class="verify"><span class="verify-box"></span></td>
+    </tr>
+    <tr>
+      <td class="measure">E₂</td>
+      <td>Countersunk / counterbore diameter (4 stk)</td>
+      <td class="expected">8.0 mm</td>
+      <td class="tol">—</td>
+      <td>______ mm</td>
+      <td class="verify"><span class="verify-box"></span></td>
+    </tr>
+    <tr>
+      <td class="measure">F</td>
+      <td>Antal monteringsskruer</td>
+      <td class="expected">4</td>
+      <td class="tol">—</td>
+      <td>______ stk</td>
+      <td class="verify"><span class="verify-box"></span></td>
+    </tr>
+    <tr>
+      <td class="measure">G</td>
+      <td>Total dybde (incl. frontplade)</td>
+      <td class="expected">39.7 mm</td>
+      <td class="tol">—</td>
+      <td>______ mm</td>
+      <td class="verify"><span class="verify-box"></span></td>
+    </tr>
+    <tr>
+      <td class="measure">H</td>
+      <td>Frontplade tykkelse (flange thickness)</td>
+      <td class="expected">4.0 mm</td>
+      <td class="tol">—</td>
+      <td>______ mm</td>
+      <td class="verify"><span class="verify-box"></span></td>
+    </tr>
+    <tr>
+      <td class="measure">J</td>
+      <td>Monteringsdybde (bagside flange → bagside magnet)</td>
+      <td class="expected">33.2 mm</td>
+      <td class="tol">—</td>
+      <td>______ mm</td>
+      <td class="verify"><span class="verify-box"></span></td>
+    </tr>
+    <tr>
+      <td class="measure">N₁</td>
+      <td>Magnet diameter (mindste ØD bag flangen)</td>
+      <td class="expected">70.0 mm</td>
+      <td class="tol">—</td>
+      <td>______ mm</td>
+      <td class="verify"><span class="verify-box"></span></td>
+    </tr>
+    <tr>
+      <td class="measure">N₂</td>
+      <td>Kurv diameter (største ØD bag flangen)</td>
+      <td class="expected">82.8 mm</td>
+      <td class="tol">—</td>
+      <td>______ mm</td>
+      <td class="verify"><span class="verify-box"></span></td>
+    </tr>
+    <tr>
+      <td class="measure">I</td>
+      <td>Recess dybde (forsænkning omkring dome)</td>
+      <td class="expected">~4 mm</td>
+      <td class="tol">est.</td>
+      <td>______ mm</td>
+      <td class="verify"><span class="verify-box"></span></td>
+    </tr>
+    <tr>
+      <td class="measure">K</td>
+      <td>Throat ØD (dome + surround, til waveguide bore)</td>
+      <td class="expected">32 mm</td>
+      <td class="tol">caliper</td>
+      <td>______ mm</td>
+      <td class="verify"><span class="verify-box"></span></td>
+    </tr>
+    <tr>
+      <td class="measure">Vægt</td>
+      <td>Nettovægt</td>
+      <td class="expected">0.53 kg</td>
+      <td class="tol">—</td>
+      <td>______ kg</td>
+      <td class="verify"><span class="verify-box"></span></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="legend">
+  <span><span class="swatch" style="background:#e85d04"></span>Koterede mål (fra databladtegning)</span>
+  <span><span class="swatch" style="background:#0066cc"></span>Afledte/estimerede mål</span>
+</div>
+
+<!-- =================== TABLE 2: ELECTRICAL =================== -->
+<h2>5. Elektriske / T-S parametre — hurtigcheck</h2>
+<p class="section-note">Disse kan verificeres med et LCR-meter eller Woofer Tester. Fs og Re kan måles direkte; resten kræver fuld T-S måling.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th class="center">Forventet</th>
+      <th class="center">Målt</th>
+      <th class="center">OK?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Nominal impedans</td><td class="expected">4 Ω</td><td>______ Ω</td><td class="verify"><span class="verify-box"></span></td></tr>
+    <tr><td>Re (DC modstand)</td><td class="expected">3.2 Ω</td><td>______ Ω</td><td class="verify"><span class="verify-box"></span></td></tr>
+    <tr><td>Fs (resonansfrekvens)</td><td class="expected">750 Hz</td><td>______ Hz</td><td class="verify"><span class="verify-box"></span></td></tr>
+    <tr><td>Følsomhed (2.83V/1m)</td><td class="expected">91.5 dB</td><td>______ dB</td><td class="verify"><span class="verify-box"></span></td></tr>
+    <tr><td>Le (induktans)</td><td class="expected">0.04 mH</td><td>______ mH</td><td class="verify"><span class="verify-box"></span></td></tr>
+    <tr><td>Sd (effektivt membranareal)</td><td class="expected">6.2 cm²</td><td>______ cm²</td><td class="verify"><span class="verify-box"></span></td></tr>
+    <tr><td>Xmax (linear slag)</td><td class="expected">0.6 mm</td><td>______ mm</td><td class="verify"><span class="verify-box"></span></td></tr>
+    <tr><td>Qts</td><td class="expected">1.12</td><td>______</td><td class="verify"><span class="verify-box"></span></td></tr>
+    <tr><td>Bl (kraftfaktor)</td><td class="expected">1.6 T·m</td><td>______</td><td class="verify"><span class="verify-box"></span></td></tr>
+    <tr><td>Effekt (RMS)</td><td class="expected">120 W</td><td>______ W</td><td class="verify"><span class="verify-box"></span></td></tr>
+    <tr><td>Ferrofluid</td><td class="expected">Nej</td><td>______</td><td class="verify"><span class="verify-box"></span></td></tr>
+  </tbody>
+</table>
+
+<!-- =================== NOTES =================== -->
+<h2>6. Noter</h2>
+<table>
+  <tbody>
+    <tr><td><strong>Deling:</strong> Diskanten er konventionel flush-mount dome — ingen indbygget horn-throat (modsætning H2606)</td></tr>
+    <tr><td><strong>Throat (K):</strong> Ø28 mm er estimeret som dome (26mm) + ~1mm surround pr. side. Verificér med skydelære — dette er det vigtigste mål for waveguide-boret.</td></tr>
+    <tr><td><strong>Counterbore (E₂):</strong> Ø8.0 × 4, dybde estimeret ~2 mm. Mål med dybdemåler.</td></tr>
+    <tr><td><strong>Waveguide-lomme:</strong> Faceplate sidder i en Ø100 lomme med 4 mm recess på bagsiden af waveguide-flangen (tw_fp_recess = 4 mm i waveguide.scad).</td></tr>
+    <tr><td><strong>Crossover:</strong> 1100 Hz LR4. Fs = 750 Hz giver 350 Hz margin — tilstrækkelig.</td></tr>
+    <tr><td><strong>GrabCAD STEP er FALSKE:</strong> assets/cad/SB26STAC-C000-4.stp er IKKE den rigtige SB26STAC — det er en lignende SB Acoustics diskant. Brug KUN disse databladmål som sandhedskilde.</td></tr>
+  </tbody>
+</table>
+
+<p class="footnote">
+  Genereret 24. juli 2026 · Kilde: SB Acoustics officielle datablad (SB26STAC-C000-4.pdf) +
+  CAD-verifikation (waveguide.scad, commit 79d327a) · mk3-reference-loudspeaker projekt
+</p>
+
+</body>
+</html>

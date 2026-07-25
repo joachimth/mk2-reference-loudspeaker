@@ -11,12 +11,17 @@
 
 | Parameter | Value | Tolerance | Notes |
 |---|---|---|---|
-| Faceplate outer diameter | **~100 mm** | ±0.35 | `Ø 100.0±0.35` on drawing |
+| Faceplate outer diameter | **100.0 mm** | ±0.35 | `Ø 100.0±0.35` on drawing |
 | Baffle cutout | **88.5 mm** | — | — |
-| Recess diameter | **53.0 mm** | — | recess around dome |
+| Recess diameter | **43.0 mm** | — | caliper-verified Jul 25 (datasheet PDF said 53.0 — misread from low-res image) |
 | Mounting BCD (4-hole) | **88.5 mm** | ±0.10 | confirmed from drawing |
-| Screw holes | 4 × ø4.0 + ø8.0 counterbore | +0.20/0.00 | — |
-| Total depth | **39.7 mm** | — | shallower than H2606 (45.1) |
+| Screw holes | 4 × ø4.0 +0.20/0 + ø8.0 counterbore | — | — |
+| Total depth | **39.7 mm** | — | incl. front flange |
+| Mounting depth | **33.2 mm** | — | back of flange → back of magnet |
+| Front flange thickness | **4.0 mm** | — | corrected Jul 24 (was ~5 mm estimate) |
+| Magnet diameter | **70.0 mm** | — | smallest ØD behind flange |
+| Basket diameter | **82.8 mm** | — | largest ØD behind flange |
+| Throat (dome + surround) | **32 mm** | — | caliper-verified Jul 25 (was 28mm estimate) |
 | Net weight | 0.53 kg | — | — |
 
 > **No horn throat.** The SB26STAC is a conventional flush-mount dome. Unlike the H2606 (ø33 mm horn exit), it has no horn to couple to the WG212 waveguide. Using it requires a complete waveguide redesign (see `cad/waveguide.scad`).
