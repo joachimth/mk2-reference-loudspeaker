@@ -78,9 +78,26 @@ Fs at 69 Hz is still well below 200 Hz, so the crossover design is not threatene
 But the higher Qts means the sealed mid chamber (5.7 L) will have a higher Qtc
 and Fc than simulated. Re-run the mid chamber simulation with DATS values.
 
-**Action:** Break in the driver for 10-20 hours (play music at moderate volume),
-then re-measure. If Fs drops toward 50-55 Hz and Qts toward 0.40-0.45, it was
-break-in. If not, contact ScanSpeak dealer.
+**Break-in update (5 hours, Jul 25):**
+
+| Parameter | 0h | 5h | Δ | Datasheet | Trend |
+|---|---|---|---|---|---|
+| Fs | 69.41 Hz | 64.53 Hz | −7.0% | 49 Hz | ✓ dropping |
+| Qts | 0.598 | 0.576 | −3.7% | 0.38 | ✓ dropping |
+| Qms | 5.518 | 5.409 | −2.0% | 1.82 | ✓ dropping (slow) |
+| Qes | 0.671 | 0.644 | −4.0% | 0.47 | ✓ dropping |
+| Zmax | 28.75 Ω | 29.78 Ω | +3.6% | — | resonance sharpening |
+
+The suspension is loosening — Fs dropped ~5 Hz and all Q values are falling.
+Break-in is working but 5 hours is not enough. The Qms in particular is still
+3× the datasheet value. Linear extrapolation suggests 15-20 more hours may
+bring Fs close to spec, but break-in is non-linear and will flatten out.
+Realistic expectation: Fs will settle around 55-60 Hz, Qts around 0.50-0.55.
+
+**Action:** Continue break-in. Re-measure at 15h and 20h. If Fs has not dropped
+below 60 Hz by 20h, the driver may simply have a stiffer suspension than the
+datasheet sample — not necessarily a defect, but the mid chamber simulation
+should use the settled DATS values, not the datasheet.
 
 ---
 
