@@ -1,163 +1,136 @@
-# Chapter 15 - Measurements
+# Chapter 15 — Measurements
+
+> **DATS impedance measurements (Jul 25, 2026):** All three mk3 drivers
+> measured in free air with Dayton Audio Test System (DATS). Raw data
+> in `assets/measurements/dats/`. Plot: `assets/measurements/dats_impedance_plot.svg`.
 
 ---
 
-## Purpose
+## Summary
 
-Measurements validate the simulated design and provide the data needed to finalize the DSP crossover, delay alignment, and EQ. No crossover or DSP settings are finalized until real measurements are taken on the physical prototype.
-
----
-
-## Required tools
-
-| Tool | Purpose |
-|---|---|
-| Measurement microphone | Calibrated (e.g. UMIK-1 or calibrated XLR mic + preamp) |
-| REW (Room EQ Wizard) | Measurement software, free |
-| VituixCAD | Crossover and spinorama analysis |
-| Turntable or angle jig | Rotating the loudspeaker for polar measurements |
-| Tape measure / laser distance meter | Microphone placement |
-| Quiet measurement environment | Minimum background noise |
-| Outdoor ground-plane area (optional) | Extended time window for high-quality bass measurements |
+| Driver | Fs (DATS) | Fs (datasheet) | Δ | Qts (DATS) | Qts (datasheet) | Δ | Status |
+|---|---|---|---|---|---|---|---|
+| GRS 12SW-4HE | 25.1 Hz | 22.0 Hz | +14% | 0.512 | 0.43 | +19% | ⚠ Qms high |
+| ScanSpeak 18W/4424G00 | 69.4 Hz | 49.0 Hz | +42% | 0.598 | 0.38 | +57% | ⚠ Significant |
+| SB26STAC-C000-4 | 658 Hz | 750 Hz | −12% | 1.042 | 1.12 | −7% | ✓ Good match |
 
 ---
 
-## Measurement environment
+## GRS 12SW-4HE (woofer, push-push pair)
 
-For the initial prototype measurements, a large room or garden outdoor ground-plane measurement is preferred. The longer reflection-free time window allows lower-frequency measurements without gating artifacts.
+| Parameter | DATS | Datasheet | Δ | Status |
+|---|---|---|---|---|
+| Fs | 25.07 Hz | 22.0 Hz | +14.0% | ✓ within tolerance |
+| Re | 4.20 Ω | 3.7 Ω | +13.5% | ✓ |
+| Qms | 3.929 | 2.0 | +96.4% | ⚠ high |
+| Qes | 0.589 | 0.54 | +9.0% | ✓ |
+| Qts | 0.512 | 0.43 | +19.0% | ⚠ high |
+| Le | 2.86 mH | 2.5 mH | +14.2% | ✓ |
+| Zmax | 32.24 Ω | — | — | — |
 
-Indoor measurements can be used for the upper frequency range (above approximately 300-500 Hz) where the measurement window is short enough to gate out room reflections.
+**Computed (using datasheet Vas = 80.4 L):**
+- Cms = 228.0 µm/N
+- Mms = 176.8 g
+- Bl = 0.30 T·m (seems low — Vas from datasheet may not match this unit)
 
-For full spinorama measurements, a quiet room with a turntable setup is needed. An anechoic chamber is ideal but not required - gated measurements in a large room can produce adequate results for DIY purposes.
+**Assessment:** Fs and Re are within 15% of spec — normal unit-to-unit variation
+for GRS. The Qms is nearly double the datasheet value (3.93 vs 2.0), which drives
+Qts up to 0.51. This suggests the suspension is softer than the datasheet sample.
+For sealed push-push this is workable but will raise Qtc slightly. The cabinet
+simulation should be re-run with DATS values.
 
----
-
-## Driver measurements
-
-### Woofer (GRS 12SW-4HE)
-
-- Nearfield measurement of each woofer individually (microphone very close to cone, ~1 cm)
-- Combined nearfield response (both woofers driven together)
-- Polarity check: verify push-push wiring (both cones moving in same direction)
-- Impedance measurement
-- Distortion measurement at rated SPL levels (THD vs frequency) — verify Klippel Xmax (12.5 mm) holds in cabinet
-- Verify Linkwitz Transform target (39→28 Hz, Q 0.76→0.707) against measured sealed response
-
-### Midrange (ScanSpeak 18W/4424G00)
-
-- On-axis response in the cabinet
-- Horizontal off-axis: 0° to 60° in 10° steps
-- Vertical off-axis: -30° to +30° in 10° steps
-- Distortion in the 150-1500 Hz range
-- Impedance in cabinet
-
-### Tweeter / Waveguide (SB Acoustics SB26STAC-C000-4 in waveguide)
-
-- On-axis response in the waveguide mounted in cabinet
-- Horizontal off-axis: 0° to 60° in 10° steps
-- Vertical off-axis: -30° to +30° in 10° steps
-- **Distortion at 1100 Hz** - confirms crossover viability (expected to pass comfortably given the 350 Hz Fs margin)
-- Impedance in waveguide
+**Action:** Measure the second 12SW unit. If both are similar, re-run sealed box
+simulation with Fs=25, Qts=0.51 to check if cabinet volume needs adjustment.
 
 ---
 
-## System measurements (assembled prototype)
+## ScanSpeak 18W/4424G00 (midrange)
 
-After driver measurements and initial DSP setup:
+| Parameter | DATS | Datasheet | Δ | Status |
+|---|---|---|---|---|
+| Fs | 69.41 Hz | 49.0 Hz | +41.7% | ⚠ significant |
+| Re | 3.117 Ω | 3.2 Ω | −2.6% | ✓ |
+| Qms | 5.518 | 1.82 | +203% | ⚠ very high |
+| Qes | 0.671 | 0.47 | +42.7% | ⚠ high |
+| Qts | 0.598 | 0.38 | +57.4% | ⚠ high |
+| Le | 0.299 mH | 0.36 mH | −17.0% | ⚠ |
+| Zmax | 28.75 Ω | — | — | — |
 
-- On-axis full system response
-- Horizontal polar: 0° to 60° minimum (0° to 90° extended)
-- Vertical polar: -30° to +30°
-- Listening window (CEA-2034 average)
-- Full spinorama set in VituixCAD
+**Computed (using datasheet Vas = 24.1 L):**
+- Cms = 924.9 µm/N (matches datasheet 920 closely!)
+- Mms = 5.68 g (datasheet says 11.4 g — significant mismatch)
+- Bl = 0.92 T·m (datasheet says 5.2 — way off, Vas assumption may be wrong)
 
----
+**Assessment:** This is the most concerning result. Fs is 42% higher than spec
+(69 vs 49 Hz), and Qts is 57% higher (0.60 vs 0.38). The Qms of 5.5 is 3× the
+datasheet value. Two possible explanations:
 
-## Horizontal measurement angles
+1. **Suspension break-in:** New driver, stiff surround. ScanSpeak Discovery
+   series units often need 10-20 hours of break-in before Fs drops and Q values
+   settle. This is the most likely explanation — a stiff suspension raises Fs
+   and Qms simultaneously, which is exactly what we see.
 
-**Minimum set:**
+2. **Unit variation:** Less likely for ScanSpeak (tighter QC than GRS), but
+   possible.
 
-| Angle |
-|---|
-| 0° |
-| 10° |
-| 20° |
-| 30° |
-| 40° |
-| 50° |
-| 60° |
+**Crossover impact:** The midrange operates 200-1100 Hz with 200 Hz BW4 high-pass.
+Fs at 69 Hz is still well below 200 Hz, so the crossover design is not threatened.
+But the higher Qts means the sealed mid chamber (5.7 L) will have a higher Qtc
+and Fc than simulated. Re-run the mid chamber simulation with DATS values.
 
-**Extended set:**
-
-| Angle |
-|---|
-| 70° |
-| 80° |
-| 90° |
-
----
-
-## Vertical measurement angles
-
-**Minimum set:**
-
-| Angle |
-|---|
-| -30° |
-| -20° |
-| -15° |
-| -10° |
-| 0° |
-| +10° |
-| +15° |
-| +20° |
-| +30° |
-
-**Focus area:** 800 Hz to 3000 Hz, particularly the mid/tweeter crossover region.
+**Action:** Break in the driver for 10-20 hours (play music at moderate volume),
+then re-measure. If Fs drops toward 50-55 Hz and Qts toward 0.40-0.45, it was
+break-in. If not, contact ScanSpeak dealer.
 
 ---
 
-## Nearfield / farfield merge
+## SB Acoustics SB26STAC-C000-4 (tweeter)
 
-At low frequencies the measurement window is too short for accurate farfield measurement indoors. The procedure:
+| Parameter | DATS | Datasheet | Δ | Status |
+|---|---|---|---|---|
+| Fs | 658.1 Hz | 750 Hz | −12.3% | ✓ |
+| Re | 3.223 Ω | 3.2 Ω | +0.7% | ✓ |
+| Qms | 2.608 | 3.0 | −13.1% | ✓ |
+| Qes | 1.735 | 1.78 | −2.5% | ✓ |
+| Qts | 1.042 | 1.12 | −7.0% | ✓ |
+| Le | 0.0 mH | 0.04 mH | — | ✓ (effectively 0) |
+| Zmax | 8.07 Ω | — | — | — |
 
-1. Measure bass nearfield (microphone very close to the woofer cone)
-2. Measure the farfield response gated at the reflection-free time window
-3. Merge the two curves in VituixCAD or REW at the appropriate frequency (typically 300-600 Hz)
-4. Apply baffle diffraction correction to the nearfield data
+**Assessment:** Excellent match to datasheet. All parameters within 13% of spec.
+Fs at 658 Hz (vs 750 spec) gives even more crossover margin at 1100 Hz LR4 —
+442 Hz margin instead of 350 Hz. This is a healthy, well-built driver.
 
----
-
-## VituixCAD workflow
-
-1. Import all driver measurements (on-axis and off-axis)
-2. Enter acoustic offsets (driver center positions relative to a reference point)
-3. Build active crossover model (BW4 at 200 Hz, LR4 at 1100 Hz)
-4. Add delay compensation values
-5. Optimize crossover frequency and slopes
-6. Compute CEA-2034 spinorama curves
-7. Evaluate DI, listening window, sound power, PIR
-8. Export DSP targets for implementation
+No action needed.
 
 ---
 
-## Open questions to resolve through measurement
+## Recommendations
 
-| Question | How to answer |
-|---|---|
-| Can SB26STAC in waveguide cross at 1100 Hz? | Measure distortion in waveguide |
-| Is 140 mm c-c achievable mechanically? | Verify in cabinet construction |
-| Does waveguide response match simulation? | Measure waveguide on/off-axis |
-| How much EQ is needed at baffle/waveguide transition? | Measure on-axis and compare to target |
-| Does push-push reduce cabinet vibration? | Measure cabinet acceleration (optional) |
-| What is the optimal bass shelf amount? | Measure excursion at maximum SPL |
+1. **Re-run cabinet simulation** with DATS-measured T/S parameters for all three
+   drivers. The 12SW's higher Qts (0.51 vs 0.43) and the 18W's much higher Fs/Qts
+   will change the sealed box response.
+
+2. **Break in the 18W/4424G00** for 10-20 hours and re-measure. The 42% Fs
+   deviation is most likely new-suspension stiffness. If it doesn't settle,
+   investigate further.
+
+3. **Measure the second 12SW-4HE** to check pair matching for push-push. Match
+   Fs within ~1 Hz for optimal cancellation.
+
+4. **Crossover safe:** The 200 Hz BW4 high-pass on the midrange is well above
+   Fs=69 Hz. The 1100 Hz LR4 on the tweeter is well above Fs=658 Hz. No
+   crossover redesign needed based on these measurements.
+
+5. **DATS could not compute Vas, Mms, Bl, Cms, sensitivity** because piston
+   diameter was not entered (set to 0). For future measurements, enter Sd so
+   DATS can compute the full parameter set. The values computed above used
+   datasheet Vas as a proxy, which may not be accurate for these specific units.
 
 ---
 
-## Open items
+## Files
 
-- Build prototype cabinet
-- Set up measurement rig (microphone stand, turntable or angle jig)
-- Calibrate measurement microphone
-- Follow VituixCAD import workflow
-- Document all measurement results in this file
+- `assets/measurements/dats/12SW-4HE_dats.txt` — raw DATS export (344 pts, 1-20643 Hz)
+- `assets/measurements/dats/18W-4424G00_dats.txt` — raw DATS export
+- `assets/measurements/dats/SB26STAC-C000-4_dats.txt` — raw DATS export
+- `assets/measurements/dats_impedance_plot.svg` — overlay impedance plot, all 3 drivers
