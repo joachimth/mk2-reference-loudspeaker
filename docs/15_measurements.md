@@ -39,8 +39,30 @@ Qts up to 0.51. This suggests the suspension is softer than the datasheet sample
 For sealed push-push this is workable but will raise Qtc slightly. The cabinet
 simulation should be re-run with DATS values.
 
-**Action:** Measure the second 12SW unit. If both are similar, re-run sealed box
-simulation with Fs=25, Qts=0.51 to check if cabinet volume needs adjustment.
+**Break-in update (5 hours, Jul 26):**
+
+| Parameter | 0h | 5h | Δ | Datasheet | 5h vs spec |
+|---|---|---|---|---|---|
+| Fs | 25.07 Hz | 23.52 Hz | −6.2% | 22 Hz | +6.9% ✓ |
+| Qts | 0.512 | 0.442 | −13.7% | 0.43 | +2.7% ✓ |
+| Qms | 3.929 | 2.995 | −23.8% | 2.0 | +49.8% ⚠ |
+| Qes | 0.589 | 0.518 | −12.0% | 0.54 | −4.1% ✓ |
+| Zmax | 32.24 Ω | 28.70 Ω | −11.0% | — | — |
+| Le | 2.86 mH | 2.91 mH | +1.8% | 2.5 mH | +16.2% |
+
+Excellent response to break-in. After just 5 hours, Qts is within 2.7% of spec
+(0.442 vs 0.43) and Fs is within 7% (23.5 vs 22 Hz). Qes is within 4% of spec.
+The driver is essentially at datasheet values now. Qms is still 50% high (3.0 vs
+2.0) but Qms has less impact on sealed box response than Qts.
+
+The 12SW responded much faster to break-in than the 18W (Qts −13.7% vs −3.7%
+in the same 5 hours). GRS uses a softer surround formulation that loosens
+quickly.
+
+**Action:** Measure the second 12SW unit (also break in if needed). With Qts =
+0.44 and Fs = 23.5 Hz, the sealed push-push cabinet simulation can proceed with
+confidence. Match the two units within ~1 Hz on Fs for optimal push-push
+cancellation.
 
 ---
 
