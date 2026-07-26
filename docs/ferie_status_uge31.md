@@ -9,51 +9,68 @@
 |--------|--------|----------|
 | **Cabinet design** | LÅST (v9) | W300 D420 H1180, 22mm birkekrydsfiner. CAD, STL, cut-SVG, BOM alle genereret. |
 | **Push-push woofers** | LÅST | 2× GRS 12SW-4HE, side-mounted, 65 L shared sealed chamber. |
-| **Waveguide** | VERIFICERET | Throat 32mm ✅, recess ØD 43mm ✅ (caliper 25/7). Waveguide.scad opdateret. |
+| **Waveguide** | VERIFICERET | Throat 32mm ✅, recess ØD 43mm ✅ (caliper 25/7). Waveguide.scad opdateret. Mockup printet og impedans-målt. |
 | **Crossover frekvenser** | LÅST | 200 Hz BW4 + 1100 Hz LR4. Bekræftet optimal (175 Hz testet og afvist). |
 | **DSP config** | KLAR | `mk3-sb26stac-200hz-bw4.xml`. Gains W0/M-4/T-9. Subsonic 18 Hz LR4. |
 | **BOM v9** | KLAR | ~EUR 800/pair aktivt. Alle driverpartnumre, tilbehør, dæmpematerialer. |
 | **Bench cheat sheet** | KLAR | `docs/BENCH_CHEAT_SHEET.md` med byggeprocedure og mål. |
-| **CI/CD** | GRØN | cad-r30 udgivet. 12 sims → STL → 34 renders → cut SVGs → deploy. |
+| **CI/CD** | GRØN | cad-r32 udgivet. 12 sims → STL → 34 renders → cut SVGs → deploy. Auto-release aktiveret. |
 
 ## 🔬 Driver-målinger (DATS, 25. juli)
 
 ### GRS 12SW-4HE (woofer, 2 stk.)
 
-| Parameter | Datasheet | Målt 25/7 | Forskel |
-|---|---|---|---|
-| Fs | 22 Hz | 22 Hz | 0% ✅ |
-| Qts | 0.43 | **0.51** | +19% |
-| Vas | 80.4 L | 80.4 L (antaget) | — |
+| Parameter | Datasheet | Målt 0h | Målt 5h | Målt 10h | Forskel (10h) |
+|---|---|---|---|---|---|
+| Fs | 22 Hz | 25.1 Hz | 23.5 Hz | 23.3 Hz | +5.7% ✅ |
+| Qts | 0.43 | 0.51 | 0.44 | 0.46 | +7.3% ✅ |
+| Re | 3.7 Ω | 4.20 Ω | 4.23 Ω | 4.40 Ω | +18.9% ⚠ (kold recheck) |
+| Vas | 80.4 L | 80.4 L (antaget) | — | — | — |
 
-**Konsekvens:** Qtc = 0.95 i 65 L (vs 0.80). Linkwitz Transform kan stadig rette til 28 Hz / Q 0.707. Kræver ~1-2 dB mere EQ-boost. **Kabinet uændret.**
+**Konsekvens:** Qtc = 0.88 i 65 L (vs 0.80 datasheet). Linkwitz Transform kan stadig rette til 28 Hz / Q 0.707. **Kabinet uændret.** Break-in færdig efter 10h.
 
 Anden 12SW er ikke målt endnu — bør matches til push-push.
 
 ### ScanSpeak 18W/4424G00 (midrange)
 
-| Parameter | Datasheet | Målt 5h BI | Målt ~15h | Målt ~20h |
-|---|---|---|---|---|
-| Fs | 49 Hz | 64.5 Hz | **mangler** | **mangler** |
-| Qts | 0.38 | 0.58 | **mangler** | **mangler** |
-| Qtc (13 L) | 0.60 | 0.91 | — | — |
-| Fc (13 L) | 76.9 Hz | 101.2 Hz | — | — |
+| Parameter | Datasheet | Målt 0h | Målt 5h | Proj. 10h | Proj. 15h | Proj. 20h |
+|---|---|---|---|---|---|---|
+| Fs | 49 Hz | 69.4 Hz | 64.5 Hz | 61.6 Hz | 59.8 Hz | 58.7 Hz |
+| Qts | 0.38 | 0.598 | 0.576 | 0.559 | 0.546 | 0.535 |
+| Qtc (13 L) | 0.60 | 0.94 | 0.91 | 0.88 | 0.86 | 0.84 |
+| Fc (13 L) | 76.9 Hz | 109.0 Hz | 101.2 Hz | 96.7 Hz | 93.9 Hz | 92.0 Hz |
 
-**Status:** Break-in virker (Fs faldt 69.4→64.5 på 5 timer). Skal måles ved 15h og 20h. Forventet stabilisering: Fs ~55-60 Hz, Qts ~0.50-0.55.
+**Estimater baseret på eksponentiel decay-model** (se `simulations/plots/breakin_projection.png`):
+- **Optimistisk scenarie** (Fs→57, Qts→0.50): τ_Fs=10h, τ_Qts=20h. 90% efter ~23h (Fs) og ~45h (Qts).
+- **Konservativt scenarie** (Fs→60, Qts→0.55): τ_Fs=6.8h, τ_Qts=8.2h. 90% efter ~16h (Fs) og ~19h (Qts).
+- **Reelt estimat:** Forvent Fs ~55-60 Hz, Qts ~0.50-0.55 efter 20-25h break-in.
 
-**Design note:** Selv med Fc=101 Hz er mid-kammeret fint da krydset er 200 Hz BW4. Ingen kabinetændring nødvendig.
+**Break-in plan:**
+| Milestone | Handling |
+|---|---|
+| 10h (1. session efter ferie) | Re-mål DATS |
+| 15h (2. session) | Re-mål DATS — forvent 70-80% af total ændring |
+| 20h (3. session) | Re-mål DATS — forvent ~90% settled. Herefter kan DSP biquads regnes. |
+
+Næste 5h break-in blok giver ~3 Hz Fs-forbedring (5→10h). Derefter aftager udbyttet: 10→15h giver ~2 Hz, 15→20h giver ~1 Hz.
+
+**Design note:** Selv med Fc=101 Hz (5h) er mid-kammeret fint da krydset er 200 Hz BW4. Ingen kabinetændring nødvendig.
 
 ### SB26STAC-C000-4 (tweeter)
 
-| Parameter | Datasheet | Målt 25/7 | Forskel |
-|---|---|---|---|
-| Fs | 750 Hz | ~740 Hz | ~1% ✅ |
-| Re | 3.7 Ω | 3.68 Ω | <1% ✅ |
-| Qms | 3.5 | 3.1 | Acceptabelt |
-| Qes | 0.63 | 0.60 | Acceptabelt |
-| Qts | 0.53 | 0.50 | Acceptabelt |
+| Parameter | Datasheet | Målt fri luft | I waveguide | Forskel |
+|---|---|---|---|---|
+| Fs | 750 Hz | 658 Hz | 632 Hz | −12% / −16% ✅ |
+| Re | 3.2 Ω | 3.22 Ω | 3.27 Ω | <1% ✅ |
+| Qts | 1.12 | 1.04 | 1.08 | −7% / −4% ✅ |
 
-**Konklusion:** Fremragende match. Ingen overraskelser.
+**Konklusion:** Fremragende match. Waveguide loading mild (Fs −4%, Qts +3.8%). Crossover margin 468 Hz (632 vs 1100 Hz LR4). Ingen justering nødvendig.
+
+### Fysiske mål (SB26STAC, caliper 25/7)
+- Throat: 32 mm (var 28 mm i CAD — rettet)
+- Recess: 43 mm (var 53 mm — rettet)
+- Alle øvrige mål inden for tolerance
+- Waveguide.scad opdateret og pushed
 
 ## 📋 Mangler efter ferien (uge 34 →)
 

@@ -19,8 +19,8 @@
 
 | Dimension | Value | Source | Caliper verify? |
 |---|---|---|---|
-| Throat diameter | ø28 mm (dome + surround) | SB26STAC datasheet + SCAD | ☐ |
-| BCD (screw circle) | ø88.5 mm | SCAD (SB26STAC faceplate) | ☐ |
+| Throat diameter | ø32 mm (dome + surround, caliper-verified) | SB26STAC physical measurement Jul 25 | [x] |
+| BCD (screw circle) | ø88.5 mm | Caliper-verified Jul 25 | [x] |
 | Mouth size (H×V) | from SCAD echo | SCAD | |
 | Total depth | from SCAD | SCAD | |
 | Flange (W×H) | from SCAD | SCAD | |
@@ -29,12 +29,12 @@
 
 | Dimension | Expected | Check with caliper | Pass? |
 |---|---|---|---|
-| Faceplate OD | ~100 mm | ☐ Measure from physical unit | ☐ |
-| Screw hole BCD | ø88.5 mm | ☐ Centre-to-centre across | ☐ |
-| Throat through-hole | ø28 mm — dome + surround must sit fully inside bore | ☐ Visual check after test-fit | ☐ |
-| Recess depth | from datasheet | ☐ | ☐ |
+| Faceplate OD | 100.0 mm (measured 99.84) | [x] Caliper-verified Jul 25 | [x] |
+| Screw hole BCD | ø88.5 mm | [x] Caliper-verified Jul 25 | [x] |
+| Throat through-hole | ø32 mm — dome + surround fits bore | [x] Caliper-verified Jul 25 | [x] |
+| Recess diameter | ø43 mm (outer edge) | [x] Caliper-verified Jul 25 | [x] |
 
-> **Note:** SB26STAC-C000-4 has no STEP file from SB Acoustics. All dimensions are from the PDF datasheet and must be caliper-verified before committing to a print.
+> **Note:** SB26STAC-C000-4 GrabCAD STEP file is a FAKE (similar but wrong SB Acoustics tweeter). All dimensions have been caliper-verified from the physical unit (Jul 25, 2026) and updated in waveguide.scad. See `docs/SB26STAC_measurement_sheet.html` for full verification sheet.
 
 ### Baffle mounting holes — verify before drilling
 
@@ -104,12 +104,12 @@ The cabinet CAD is fully parametric. Once these 3 steps are done:
 
 ---
 
-## CAD current state (as of July 4, 2026)
+## CAD current state (as of July 26, 2026)
 
 | Model | File | Notes |
 |---|---|---|
-| `cad/waveguide.scad` | primary | SB26STAC waveguide: BCD 88.5 mm, throat 28 mm, no horn loading. STL rendered, manifold. |
-| `cad/cabinet.scad` | shared | Fully dynamic from waveguide.scad; waveguide recessed inside cabinet, baffle aperture model. Updated for GRS 12SW-4HE (284 mm cutout, ~332 mm frame, ~136 mm depth, 75 L bass under divider plate). |
+| `cad/waveguide.scad` | primary | SB26STAC waveguide: BCD 88.5 mm, throat 32 mm (caliper-verified), recess 43 mm. STL rendered, manifold. Waveguide mockup printed and impedance-verified. |
+| `cad/cabinet.scad` | shared | Fully dynamic from waveguide.scad; W300 D420 H1180, 65 L bass chamber, 5.7 L mid chamber. Updated for GRS 12SW-4HE (284 mm cutout). |
 
 **Don't cut panels from SCAD outputs until parts are physically verified.**
 
@@ -119,7 +119,7 @@ The cabinet CAD is fully parametric. Once these 3 steps are done:
 
 | Item | Value |
 |---|---|
-| Cabinet W×D×H | 320 × 380 × 1180 mm (22 mm birch ply) |
+| Cabinet W×D×H | 300 × 420 × 1180 mm (22 mm birch ply, locked Jul 8) |
 | Woofer (each) | GRS 12SW-4HE, 4 Ω, 12" high excursion, side-mounted push-push |
 | Woofer centers | ~520 mm from bottom, opposed at same height |
 | Midrange | ScanSpeak 18W/4424G00, 4 Ω |

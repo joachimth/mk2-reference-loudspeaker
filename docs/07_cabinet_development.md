@@ -1,5 +1,11 @@
 # Chapter 7 - Cabinet Development
 
+> **UPDATE Jul 8, 2026:** Cabinet dimensions locked at **W300 × D420 × H1180 mm**
+> (commit 27850dc). The 320 mm width discussed below was the v9 design at the
+> time of writing. It was later reduced to 300 mm after verifying 12SW magnet
+> clearance at 256 mm internal width. Bass volume is ~65 L (not 75 L as stated
+> below). This chapter is kept as design history.
+
 ---
 
 ## Design history

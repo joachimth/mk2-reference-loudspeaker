@@ -9,15 +9,15 @@ Prices are indicative (sourced June 2026); verify before ordering.
 
 | Part | Qty/pair | Unit price | Supplier | Notes |
 |---|---|---|---|---|
-| GRS 12SW-4HE (12" woofer) | 4 | ~€75 | Parts-Express | 2 per enclosure, push-push. Fs 22 Hz, Qts 0.43, Vas 80.4 L, Xmax 12.5 mm (Klippel), Sd 504 cm², 250 W |
-| ScanSpeak 18W/4424G00 (midrange) | 2 | ~€95 | Scan-Speak / Hifi-Skabet | v9: replaces 15W/4434G00 (DD-016). Fs 49 Hz, Qts 0.38, Vas 24.1 L, Sd 137 cm², 91 dB, 4 Ω. Parametric model `cad/midrange.scad` |
+| GRS 12SW-4HE (12" woofer) | 4 | ~€75 | Parts-Express | 2 per enclosure, push-push. Fs 22 Hz (datasheet), DATS: Fs=23.3, Qts=0.46 after 10h break-in. Vas 80.4 L, Xmax 12.5 mm (Klippel), Sd 504 cm², 250 W |
+| ScanSpeak 18W/4424G00 (midrange) | 2 | ~€95 | Scan-Speak / Hifi-Skabet | v9: replaces 15W/4434G00 (DD-016). Fs 49 Hz (datasheet), DATS: Fs=64.5 after 5h break-in (still settling). Qts 0.38 (datasheet), DATS: 0.58. Vas 24.1 L, Sd 137 cm², 91 dB, 4 Ω. Parametric model `cad/midrange.scad` |
 | SB Acoustics SB26STAC-C000-4 (tweeter) | 2 | ~€35 | SB Acoustics / Parts-Express | Custom waveguide, no horn loading |
 
 ## Waveguide
 
 | Part | Qty/pair | Notes |
 |---|---|---|
-| SB26STAC custom waveguide | 2 | 3D print from `cad/waveguide.scad`. BCD 88.5 mm, throat 28 mm. No STEP file from SB Acoustics — caliper-verify all dimensions. |
+| SB26STAC custom waveguide | 2 | 3D print from `cad/waveguide.scad`. BCD 88.5 mm, throat 32 mm (caliper-verified Jul 25). GrabCAD STEP is fake — dimensions from physical measurement. |
 
 ## Cabinet
 

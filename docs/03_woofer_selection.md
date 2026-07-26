@@ -1,5 +1,9 @@
 # Chapter 3 - Woofer Investigations
 
+> **UPDATE Jul 8, 2026:** Cabinet width locked at 300 mm (not 320 mm as stated
+> below). Bass volume is ~65 L (not 75 L). DATS measurements (Jul 25) show
+> Fs=23.3 Hz, Qts=0.46 after 10h break-in (datasheet: Fs=22, Qts=0.43).
+
 ---
 
 ## Requirements

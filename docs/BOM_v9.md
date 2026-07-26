@@ -15,7 +15,7 @@ Approximate prices in EUR (incl. VAT). Updated July 7, 2026.
 
 | Item | Qty | Unit Price | Total | Notes |
 |------|:---:|:----------:|:-----:|-------|
-| 25mm MDF (1.22×2.44m sheet) | 1 | ~€35 | €35 | HDF or BB ply preferred if available |
+| 22mm birch plywood (1.22×2.44m sheet) | 1 | ~€45 | €45 | BB ply preferred. Cabinet locked W300 D420 H1180 |
 | 18mm MDF (bracing) | 0.5 sheet | ~€20 | €10 | Internal braces and driver mounting rings |
 | T-nuts M6 (driver mounting) | 20 | ~€0.20 | €4 | 8 per woofer + 4 per mid + 4 per tweeter |
 | Bolts M6×25mm (driver mounting) | 20 | ~€0.15 | €3 | |

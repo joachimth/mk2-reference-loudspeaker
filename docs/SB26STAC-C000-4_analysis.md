@@ -154,7 +154,7 @@ The waveguide for the SB26STAC is `cad/waveguide.scad`.
 
 | Parameter | Value |
 |---|---|
-| throat_d | 28 mm (dome + surround) |
+| throat_d | 32 mm (dome + surround, caliper-verified Jul 25) |
 | tw_face_d | 100.0 mm |
 | tw_bcd | 88.5 mm |
 | tw_ring_od | 115 mm |
@@ -224,6 +224,6 @@ The broadside null for 150mm c-c is at 1147 Hz. Crossing **below** this (1100 Hz
 - [ ] Purchase SB26STAC-C000-4 physical unit
 - [ ] Caliper measurement: faceplate OD, BCD (88.5 from drawing — confirm), dome surround Ø, total depth, recess Ø, counterbore depth
 - [ ] Confirm counterbore depth (estimated 2mm — not on drawing)
-- [ ] Confirm throat diameter (estimated 28mm — dome + surround) against `cad/waveguide.scad`
+- [x] Confirm throat diameter (32mm — caliper-verified Jul 25, 2026)
 - [ ] Print waveguide and test-fit SB26STAC
 - [ ] Measure SB26STAC in-waveguide response and directivity at 1100 Hz (expected to pass comfortably)

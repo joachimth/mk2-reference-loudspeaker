@@ -8,7 +8,8 @@ This file will track the physical build of the Mk3 Reference Loudspeaker.
 
 ## Status
 
-Not started.
+Drivers received and measured (DATS). Waveguide mockup printed and impedance-verified.
+Cabinet not yet built.
 
 ## Goals
 
@@ -25,8 +26,8 @@ Not started.
 
 ## External dimensions
 
-- Width: 320 mm
-- Depth: 380 mm
+- Width: 300 mm
+- Depth: 420 mm
 - Height: 1180 mm
 - Material: 22 mm birch plywood
 - Front vertical roundovers: R19
@@ -69,15 +70,37 @@ Use this section for real measurement notes.
 
 ## Date
 
-TBD
+Jul 25-26, 2026
 
 ## Setup
 
-TBD
+Dayton Audio Test System (DATS), free air impedance measurements.
+All 3 driver types measured before and after break-in.
 
 ## Results
 
-TBD
+### GRS 12SW-4HE (woofer #1)
+- 0h: Fs=25.1, Qts=0.51
+- 5h: Fs=23.5, Qts=0.44
+- 10h: Fs=23.3, Qts=0.46 (break-in complete)
+- Re elevated to 4.40 Ω (cold recheck needed)
+
+### ScanSpeak 18W/4424G00 (midrange)
+- 0h: Fs=69.4, Qts=0.60 (stiff new suspension)
+- 5h: Fs=64.5, Qts=0.58 (break-in progressing, needs more)
+- Still ~30% above spec on Fs. Continue to 15-20h.
+
+### SB26STAC-C000-4 (tweeter)
+- Free air: Fs=658, Qts=1.04 (excellent match to spec)
+- In waveguide mockup: Fs=632, Qts=1.08 (mild loading, as expected)
+- Waveguide acoustically transparent. Crossover margin 468 Hz.
+
+### Physical dimensions (SB26STAC, caliper-verified Jul 25)
+- Throat: 32 mm (was 28 mm in CAD — corrected)
+- Recess: 43 mm (was 53 mm — corrected)
+- All other dims within tolerance of datasheet
+
+Full analysis: `docs/15_measurements.md`
 
 ---
 

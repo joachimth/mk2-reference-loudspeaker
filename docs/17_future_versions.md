@@ -4,7 +4,7 @@
 
 ## Version roadmap
 
-The Mk3 Reference Loudspeaker is designed to be an evolving platform. The v9 design (GRS 12SW-4HE woofer upgrade, ScanSpeak 18W/4424G00 midrange, SB26STAC-C000-4 tweeter at 1100 Hz, 200 Hz BW4 bass/mid crossover, 320 mm cabinet) is the current prototype candidate. Future versions will address remaining limitations and explore more advanced techniques.
+The Mk3 Reference Loudspeaker is designed to be an evolving platform. The v9 design (GRS 12SW-4HE woofer upgrade, ScanSpeak 18W/4424G00 midrange, SB26STAC-C000-4 tweeter at 1100 Hz, 200 Hz BW4 bass/mid crossover, W300 D420 H1180 cabinet) is the current prototype candidate. Future versions will address remaining limitations and explore more advanced techniques.
 
 ---
 
@@ -14,7 +14,7 @@ Woofer upgraded from GRS 8SW-4HE-8 (8") to GRS 12SW-4HE (12" high excursion).
 
 **Changes:**
 - 2 × GRS 12SW-4HE push-push woofers (Fs 22 Hz, Xmax 12.5 mm, Sd 504 cm²)
-- Bass volume ~75 L under divider plate
+- Bass volume ~65 L under divider plate
 - Linkwitz Transform: Fc 39→28 Hz, Qtc 0.76→0.707
 - Max SPL @ 30 Hz: +16 dB over v7
 - See DD-015

@@ -9,8 +9,8 @@
 | Item | Value |
 |---|---|
 | **Design** | Active DSP 3-way, sealed, push-push woofers |
-| **Cabinet width** | 320 mm |
-| **Bass volume** | ~75 L (under divider plate) |
+| **Cabinet** | W300 × D420 × H1180 mm, 22 mm birch plywood (locked Jul 8) |
+| **Bass volume** | ~65 L (under divider plate) |
 | **Front roundovers** | R19 mm vertical edges |
 
 ---
@@ -50,17 +50,17 @@
 | Dimension | Value | Verified? |
 |---|---|---|
 | Mid/tweeter c-c spacing | **~150-160 mm** (realistic target; 140 mm ideal if D-flange waveguide) | [ ] |
-| Tweeter waveguide throat | **28 mm** (SB26STAC dome + surround) | [ ] |
-| Waveguide mouth | **~212 mm** | [ ] |
-| Waveguide BCD | **88.5 mm** (3-hole, M3 or M4) | [ ] |
+| Tweeter waveguide throat | **32 mm** (caliper-verified Jul 25) | [x] |
+| Waveguide mouth | **~293 mm** | [ ] |
+| Waveguide BCD | **88.5 mm** (4-hole, Ø4.0 + Ø8.0 CBSK) | [x] |
 | 18W cutout | Ø144.3 mm | [ ] |
 | 12SW cutout | Ø284 mm | [ ] |
-| Cabinet internal width | 276 mm (320 - 2×22 mm walls) | [ ] |
-| Opposed woofer magnet clearance | ~4 mm @ 276 mm internal width | [ ] ⚠️ |
+| Cabinet internal width | 256 mm (300 - 2×22 mm walls) | [ ] |
+| Opposed woofer magnet clearance | ~4 mm @ 256 mm internal width | [ ] ⚠️ |
 
 > ⚠️ **Verify 12SW magnet clearance with physical driver before cutting panels.**
 > Coupling block: h=20 mm, r=55 mm. Basket profile must be checked against a real
-> 12SW. The 320 mm cabinet width (276 mm internal) was chosen to provide adequate
+> 12SW. The 300 mm cabinet width (256 mm internal) was chosen to provide adequate
 > opposed-magnet clearance.
 
 ---
@@ -71,12 +71,12 @@
 Input → Subsonic HP 18 Hz LR4 → Linkwitz Transform → Crossover → Output
 ```
 
-### Linkwitz Transform (12SW in ~75 L sealed)
+### Linkwitz Transform (12SW in ~65 L sealed)
 
 | Parameter | Before LT | After LT |
 |---|---|---|
-| Fc | 39.0 Hz | 28 Hz |
-| Qtc | 0.76 | 0.707 |
+| Fc | ~42 Hz (DATS: Fs=23.3, Qts=0.46) | 28 Hz |
+| Qtc | ~0.88 (DATS-measured) | 0.707 |
 
 ### Delay Estimates (for MiniDSP alignment)
 
@@ -92,9 +92,9 @@ Input → Subsonic HP 18 Hz LR4 → Linkwitz Transform → Crossover → Output
 
 ## Verification Steps (in order)
 
-- [ ] **1. Print waveguide** — verify throat (28 mm), BCD (88.5 mm), mouth (212 mm) with calipers
+- [x] **1. Print waveguide** — throat 32 mm ✓, BCD 88.5 mm ✓, caliper-verified Jul 25
 - [ ] **2. SB26STAC distortion test** — 1100 Hz, 96 dB. Target: ≤2% THD. If >3%, rethink XO
-- [ ] **3. Measure T/S on 12SW** — verify actual Fs, Qts, Vas against datasheet
+- [x] **3. Measure T/S on 12SW** — DATS measured, break-in 10h complete: Fs=23.3, Qts=0.46
 - [ ] **4. Mock up magnet clearance** — cut cardboard templates from STEP, check opposed gap
 - [ ] **5. Full cabinet** — build, mount drivers, seal, wire series
 - [ ] **6. DSP load** — import `mk3-v9-200-1100-bw4-lr4.xml` → upload to MiniDSP
@@ -141,4 +141,4 @@ Input → Subsonic HP 18 Hz LR4 → Linkwitz Transform → Crossover → Output
 
 ---
 
-*Last updated: July 7, 2026 — v9 (18W/4424G00 midrange, 200 Hz BW4 crossover, 320 mm cabinet).*
+*Last updated: July 26, 2026 — v9 (18W/4424G00 midrange, 200 Hz BW4 crossover, W300 D420 cabinet, DATS-measured drivers).*

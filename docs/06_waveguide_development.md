@@ -90,7 +90,7 @@ Chapter 11).
 
 | Task | Status |
 |---|---|
-| Define throat diameter (SB26STAC specific) | 28 mm — caliper-verify on physical unit |
+| Define throat diameter (SB26STAC specific) | 32 mm — caliper-verified Jul 25, 2026 |
 | Define profile (OS/Tractrix/custom) | Done — asymmetric OS |
 | Define mouth and termination | Done — ~293 × 173, rolled flush mouth |
 | Define depth | Done — ~98 mm |

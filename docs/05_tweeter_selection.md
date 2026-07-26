@@ -1,5 +1,10 @@
 # Chapter 5 - Tweeter Investigations
 
+> **UPDATE Jul 25, 2026:** Throat diameter caliper-verified at **32 mm** (not
+> 28 mm as estimated below). Recess diameter corrected to **43 mm** (not 53 mm).
+> Both values updated in `cad/waveguide.scad`. The 320 mm baffle width mentioned
+> below was later changed to 300 mm (see Chapter 7 update note).
+
 ---
 
 ## Requirements
