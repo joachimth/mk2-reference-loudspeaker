@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mk3 — Skæreplan 12mm birkekrydsfiner</title>
+<style>
+  @page { size: A4 landscape; margin: 10mm; }
+  body { font-family: system-ui, -apple-system, sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px; color: #222; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  h2 { font-size: 16px; margin-top: 28px; margin-bottom: 8px; border-bottom: 2px solid #e85d04; padding-bottom: 4px; }
+  .subtitle { color: #666; font-size: 13px; margin-bottom: 16px; }
+  .info-box { background: #fff8f0; border: 1px solid #f0c896; border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; font-size: 13px; }
+  .info-box strong { color: #e85d04; }
+  svg { display: block; margin: 12px auto; max-width: 100%; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 16px; }
+  th { background: #e85d04; color: white; text-align: left; padding: 8px 10px; font-weight: 600; }
+  th.center { text-align: center; }
+  td { padding: 7px 10px; border-bottom: 1px solid #ddd; }
+  tr:nth-child(even) { background: #fafafa; }
+  td.measure { font-family: 'Courier New', monospace; white-space: nowrap; font-weight: 600; }
+  .print-btn { background: #e85d04; color: white; border: none; padding: 8px 20px; border-radius: 6px; font-size: 14px; cursor: pointer; margin-bottom: 16px; }
+  .print-btn:hover { background: #c44d03; }
+  @media print { .print-btn { display: none; } }
+  .footnote { font-size: 11px; color: #999; margin-top: 24px; border-top: 1px solid #eee; padding-top: 8px; }
+  .note-box { font-size: 12px; color: #555; background: #f8f8f8; border-left: 3px solid #e85d04; padding: 8px 12px; margin: 8px 0; }
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">Print / Gem som PDF</button>
+
+<h1>Mk3 — Skæreplan 12mm birkekrydsfiner</h1>
+<p class="subtitle">Interne dele: skilleplade, afstivninger, mellemtonekammer — ET PAR (2 højttalere)</p>
+
+<div class="info-box">
+  <strong>Plade:</strong> 1× 1220×2440mm 12mm birkekrydsfiner (BB/krydsfiner)<br>
+  <strong>Udnyttelse:</strong> 27.7% (rigelig margin til feklip og justeringer)<br>
+  <strong>Kabinet:</strong> W300 × D420 × H1180mm, 22mm ydre paneler<br>
+  <strong>12mm bruges til:</strong> Skilleplade (bass/mid), 3× ring-afstivninger, mellemtonekammer vægge + top
+</div>
+
+<h2>1. Analyse — hvilke dele skal i 12mm?</h2>
+
+<p>
+Hovedkabinettet (sidepaneler, front, bagside, top, bund) er 22mm birkekrydsfiner for
+at sikre tilstrækkelig stivhed og dæmpning af panelresonanser. De interne dele
+skal kun bidrage med strukturel afstivning (ikke bære lasten), så 12mm er tilstrækkeligt
+og sparer vægt + omkostninger.
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Del</th>
+      <th class="center">12mm OK?</th>
+      <th>Begrundelse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Skilleplade (divider, bass/mid)</td>
+      <td class="center">✓</td>
+      <td>Skiller akustisk bass- og mid-kammer. Skal være tæt, ikke bære stor last. 12mm er tilstrækkeligt når den er limet fast på alle sider.</td>
+    </tr>
+    <tr>
+      <td>Ring-afstivninger (3 stk)</td>
+      <td class="center">✓</td>
+      <td>Binder sidepaneler sammen mod tryk. Ring-form med 45mm rim er strukturelt stiv nok i 12mm. Åben center bevarer luftflow.</td>
+    </tr>
+    <tr>
+      <td>Mellemtonekammer vægge</td>
+      <td class="center">✓</td>
+      <td>Lille forseglet kammer (~5.7L) omkring 18W driveren. 12mm giver tilstrækkelig stivhed til dette lille volumen.</td>
+    </tr>
+    <tr>
+      <td>Mellemtonekammer top</td>
+      <td class="center">✓</td>
+      <td>Topplade på mid-kammer. Lille areal, 12mm er stift nok.</td>
+    </tr>
+    <tr>
+      <td>Coupling block (woofer-magnet)</td>
+      <td class="center">✓</td>
+      <td>Lamineres af 3× 12mm = 36mm, eller skæres fra 12mm scrap. Binder modsatte woofer-magneter sammen for push-push.</td>
+    </tr>
+    <tr>
+      <td>Hovedpaneler (side, front, etc.)</td>
+      <td class="center">✗</td>
+      <td>SKAL være 22mm. Bærer lasten, bestemmer kabinettets stivhed og resonansfrekvens.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>2. Skæreplan — sheet layout (1220×2440mm)</h2>
+
+<svg viewBox="0 0 880 560" width="880" height="560" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .sheet { fill: #e8e0d0; stroke: #555; stroke-width: 1.5; }
+    .piece { fill: #f5f0e0; stroke: #333; stroke-width: 1.1; }
+    .cutout { fill: none; stroke: #c0392b; stroke-width: 1.0; stroke-dasharray: 4,2; }
+    .scrap { fill: #dce8d8; stroke: #7a9a78; stroke-width: 0.6; stroke-dasharray: 4,3; }
+    .cut { stroke: #e67e22; stroke-width: 1.2; stroke-dasharray: 6,3; fill: none; }
+    .lbl { fill: #222; font-family: sans-serif; font-size: 9px; font-weight: bold; }
+    .sub { fill: #555; font-family: sans-serif; font-size: 8px; }
+    .dim { stroke: #2980b9; stroke-width: 0.6; fill: none; }
+    .dimt { fill: #2980b9; font-family: sans-serif; font-size: 8px; text-anchor: middle; }
+    .title { fill: #222; font-family: sans-serif; font-size: 14px; font-weight: bold; }
+    .stitle { fill: #555; font-family: sans-serif; font-size: 10px; }
+  </style>
+
+  <!-- Sheet outline: 1220×2440mm, scale = 0.3 mm/px → 366×732px -->
+  <!-- Offset: x=60, y=60. Sheet is portrait orientation -->
+  
+  <!-- Title -->
+  <text x="60" y="25" class="title">Skæreplan — 12mm birkekrydsfiner 1220×2440mm — ET PAR</text>
+  <text x="60" y="42" class="stitle">12 dele på 1 plade · Udnyttelse 27.7% · Rester til coupling blocks og feklip</text>
+
+  <!-- Scale: 1mm = 0.28px -->
+  <g transform="translate(60, 60) scale(0.28)">
+    <!-- Sheet 1220×2440 -->
+    <rect x="0" y="0" width="1220" height="2440" class="sheet"/>
+    
+    <!-- Column 1: x=0-398, Divider plates (2× 398×256) -->
+    <!-- Divider 1: top -->
+    <rect x="10" y="10" width="398" height="256" class="piece"/>
+    <text x="20" y="30" class="lbl" transform="scale(3.57)">Divider V</text>
+    <text x="20" y="50" class="sub" transform="scale(3.57)">398×256mm</text>
+    <text x="20" y="65" class="sub" transform="scale(3.57)">19° vinkel</text>
+    
+    <!-- Divider 2: below -->
+    <rect x="10" y="280" width="398" height="256" class="piece"/>
+    <text x="20" y="300" class="lbl" transform="scale(3.57)">Divider H</text>
+    <text x="20" y="320" class="sub" transform="scale(3.57)">398×256mm</text>
+    <text x="20" y="335" class="sub" transform="scale(3.57)">19° vinkel</text>
+    
+    <!-- Mid partition V: below dividers -->
+    <rect x="10" y="550" width="256" height="51" class="piece"/>
+    <text x="20" y="570" class="lbl" transform="scale(3.57)">Mid part V</text>
+    <text x="20" y="590" class="sub" transform="scale(3.57)">256×51mm</text>
+    
+    <!-- Mid partition H -->
+    <rect x="10" y="615" width="256" height="51" class="piece"/>
+    <text x="20" y="635" class="lbl" transform="scale(3.57)">Mid part H</text>
+    <text x="20" y="655" class="sub" transform="scale(3.57)">256×51mm</text>
+    
+    <!-- Mid top V -->
+    <rect x="10" y="680" width="256" height="51" class="piece"/>
+    <text x="20" y="700" class="lbl" transform="scale(3.57)">Mid top V</text>
+    <text x="20" y="720" class="sub" transform="scale(3.57)">256×51mm</text>
+    
+    <!-- Mid top H -->
+    <rect x="10" y="745" width="256" height="51" class="piece"/>
+    <text x="20" y="765" class="lbl" transform="scale(3.57)">Mid top H</text>
+    <text x="20" y="785" class="sub" transform="scale(3.57)">256×51mm</text>
+    
+    <!-- Column 2: x=420-794, Ring shelves (6× 254×374) -->
+    <!-- Shelf 1 V (z=160) -->
+    <rect x="430" y="10" width="254" height="374" class="piece"/>
+    <text x="440" y="30" class="lbl" transform="scale(3.57)">Shelf z=160 V</text>
+    <text x="440" y="50" class="sub" transform="scale(3.57)">254×374mm</text>
+    <text x="440" y="65" class="sub" transform="scale(3.57)">R19, cutout</text>
+    <!-- Inner cutout -->
+    <rect x="475" y="55" width="164" height="284" class="cutout"/>
+    
+    <!-- Shelf 2 V (z=330) -->
+    <rect x="430" y="400" width="254" height="374" class="piece"/>
+    <text x="440" y="420" class="lbl" transform="scale(3.57)">Shelf z=330 V</text>
+    <text x="440" y="440" class="sub" transform="scale(3.57)">254×374mm</text>
+    <text x="440" y="455" class="sub" transform="scale(3.57)">R19, cutout</text>
+    <rect x="475" y="445" width="164" height="284" class="cutout"/>
+    
+    <!-- Shelf 3 V (z=730) -->
+    <rect x="430" y="790" width="254" height="374" class="piece"/>
+    <text x="440" y="810" class="lbl" transform="scale(3.57)">Shelf z=730 V</text>
+    <text x="440" y="830" class="sub" transform="scale(3.57)">254×374mm</text>
+    <text x="440" y="845" class="sub" transform="scale(3.57)">R19, cutout</text>
+    <rect x="475" y="835" width="164" height="284" class="cutout"/>
+    
+    <!-- Column 3: x=810-1064, Ring shelves H (3×) -->
+    <!-- Shelf 1 H (z=160) -->
+    <rect x="810" y="10" width="254" height="374" class="piece"/>
+    <text x="820" y="30" class="lbl" transform="scale(3.57)">Shelf z=160 H</text>
+    <text x="820" y="50" class="sub" transform="scale(3.57)">254×374mm</text>
+    <text x="820" y="65" class="sub" transform="scale(3.57)">R19, cutout</text>
+    <rect x="855" y="55" width="164" height="284" class="cutout"/>
+    
+    <!-- Shelf 2 H (z=330) -->
+    <rect x="810" y="400" width="254" height="374" class="piece"/>
+    <text x="820" y="420" class="lbl" transform="scale(3.57)">Shelf z=330 H</text>
+    <text x="820" y="440" class="sub" transform="scale(3.57)">254×374mm</text>
+    <text x="820" y="455" class="sub" transform="scale(3.57)">R19, cutout</text>
+    <rect x="855" y="445" width="164" height="284" class="cutout"/>
+    
+    <!-- Shelf 3 H (z=730) -->
+    <rect x="810" y="790" width="254" height="374" class="piece"/>
+    <text x="820" y="810" class="lbl" transform="scale(3.57)">Shelf z=730 H</text>
+    <text x="820" y="830" class="sub" transform="scale(3.57)">254×374mm</text>
+    <text x="820" y="845" class="sub" transform="scale(3.57)">R19, cutout</text>
+    <rect x="855" y="835" width="164" height="284" class="cutout"/>
+    
+    <!-- Scrap area (bottom + right column) -->
+    <rect x="810" y="1180" width="400" height="1250" class="scrap"/>
+    <text x="900" y="1700" class="sub" transform="scale(3.57)">Rest: coupling blocks</text>
+    <text x="900" y="1720" class="sub" transform="scale(3.57)">+ feklip margin</text>
+    
+    <!-- Cut lines (horizontal rip cuts) -->
+    <line x1="0" y1="0" x2="420" y2="0" class="cut"/>
+    <line x1="420" y1="0" x2="420" y2="2440" class="cut"/>
+    <line x1="800" y1="0" x2="800" y2="2440" class="cut"/>
+  </g>
+
+  <!-- Sheet dimensions -->
+  <text x="148" y="555" class="dimt">1220mm</text>
+  <text x="48" y="320" class="dimt" transform="rotate(-90, 48, 320)">2440mm</text>
+</svg>
+
+<h2>3. Deleliste — dimensioner og antal</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Del</th>
+      <th class="center">Mål (mm)</th>
+      <th class="center">Antal pr. par</th>
+      <th class="center">Area (m²)</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="measure">D1-2</td>
+      <td>Skilleplade (divider)</td>
+      <td class="measure">398 × 256</td>
+      <td class="center">2</td>
+      <td class="center">0.204</td>
+      <td>19° vinkel langs 398mm siden. R19 hjørner. Skill bass- og mid-kammer.</td>
+    </tr>
+    <tr>
+      <td class="measure">S1-3</td>
+      <td>Ring-afstivning z=160</td>
+      <td class="measure">254 × 374</td>
+      <td class="center">2</td>
+      <td class="center">0.190</td>
+      <td>R19 hjørner. Indre cutout 164×284mm (45mm rim). Fri luftflow.</td>
+    </tr>
+    <tr>
+      <td class="measure">S4-6</td>
+      <td>Ring-afstivning z=330</td>
+      <td class="measure">254 × 374</td>
+      <td class="center">2</td>
+      <td class="center">0.190</td>
+      <td>Som ovenfor. Begge shelves fri af woofer-zonen (z=378-662).</td>
+    </tr>
+    <tr>
+      <td class="measure">S7-9</td>
+      <td>Ring-afstivning z=730</td>
+      <td class="measure">254 × 374</td>
+      <td class="center">2</td>
+      <td class="center">0.190</td>
+      <td>Som ovenfor. Fri af woofer-zonen.</td>
+    </tr>
+    <tr>
+      <td class="measure">M1-2</td>
+      <td>Mid-kammer skilleværg</td>
+      <td class="measure">256 × 51</td>
+      <td class="center">2</td>
+      <td class="center">0.026</td>
+      <td>Skilleværg der afgrænser 5.7L mellemtonekammer fra resten.</td>
+    </tr>
+    <tr>
+      <td class="measure">M3-4</td>
+      <td>Mid-kammer top</td>
+      <td class="measure">256 × 51</td>
+      <td class="center">2</td>
+      <td class="center">0.026</td>
+      <td>Topplade på forseglet mellemtonekammer.</td>
+    </tr>
+    <tr>
+      <td class="measure">C1-2</td>
+      <td>Coupling block (scrap)</td>
+      <td class="measure">Ø110 × 36</td>
+      <td class="center">2</td>
+      <td class="center">—</td>
+      <td>Lamineres af 3× 12mm = 36mm. Skæres fra restmateriale.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note-box">
+  <strong>Skærefølge:</strong>
+  <ol>
+    <li>Rip pladen i 3 strimler: 398mm, 254mm, 254mm (rest = 314mm til scrap)</li>
+    <li>Strimmel 1 (398mm): skær 2× divider plader + 4× mid-kammer dele</li>
+    <li>Strimmel 2 (254mm): skær 3× ring-afstivninger (venstre højttaler)</li>
+    <li>Strimmel 3 (254mm): skær 3× ring-afstivninger (højre højttaler)</li>
+    <li>Rest: 314×2440mm til coupling blocks, feklip og justeringer</li>
+  </ol>
+</div>
+
+<h2>4. Detaljer om enkelte dele</h2>
+
+<h3>Skilleplade (divider)</h3>
+<p>
+  Full-width plade der skiller bass-kammer (under) fra mid-kammer (over). Pladen
+  hælder 19° med frontkanten lavest (~632mm fra bund) og bagkanten højest (~761mm).
+  Hældningen bryder parallelle flader i mid-kammeret og reducerer stående bølger.
+  Skær som rektangel 398×256mm, vinklen opstår naturligt når pladen monteres skævt.
+  Lim fast på alle fire sider for tætning.
+</p>
+
+<h3>Ring-afstivninger (shelf braces)</h3>
+<p>
+  Tre ringe per højttaler ved z=160, 330, 730mm fra bund. Ydre profil følger
+  kabinettets indre form (R19 hjørner), med 45mm rim og åben center (164×284mm)
+  for fri luftflow i bass-kammeret. Alle tre ringe er fri af woofer-zonen
+  (z=378-662mm), så ingen woofer-notches behøves. Lim fast til sidepaneler +
+  front/bagside.
+</p>
+
+<h3>Mellemtonekammer (mid chamber)</h3>
+<p>
+  Det samlede rum over skillepladen er ~42L, men 18W/4424G00 skal kun have 5.7L
+  forseglet kammer. Kammeret afgrænses med en skilleværg 51mm bag frontbafflen
+  (256×51mm) og en topplade (256×51mm). Dette skaber et lille forseglet rum
+  omkring driveren. Skillevæggen og toppen er små dele, men kritiske for
+  akustikken — de skal være helt tætte. Brug lim + tætningsmasse.
+</p>
+
+<h3>Coupling block</h3>
+<p>
+  Cylinder Ø110×36mm der binder de to modsatte woofer-magneter sammen for
+  push-push cancellation. Lamineres af 3× 12mm plader (12+12+12=36mm), eller
+  skæres fra et stykke 36mm materiale. Monteres med lim mellem magnet-backs.
+  Kun 2 stk per par (1 per højttaler).
+</p>
+
+<div class="footnote">
+  Genereret 26. juli 2026 · Kilde: cad/cabinet.scad (W300 D420 H1180, wall=22, divider_tilt=19°)<br>
+  Dimensioner er beregnet fra CAD-parametre. Verificér med kabinettet før endelig skæring.
+</div>
+
+</body>
+</html>
