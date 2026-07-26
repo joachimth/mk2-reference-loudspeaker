@@ -64,6 +64,27 @@ quickly.
 confidence. Match the two units within ~1 Hz on Fs for optimal push-push
 cancellation.
 
+**Break-in update (10 hours, Jul 26):**
+
+| Parameter | 0h | 5h | 10h | Datablad | 10h vs spec |
+|---|---|---|---|---|---|
+| Fs | 25.07 Hz | 23.52 Hz | 23.25 Hz | 22 Hz | +5.7% ✓ |
+| Qts | 0.512 | 0.442 | 0.462 | 0.43 | +7.3% ✓ |
+| Qes | 0.589 | 0.518 | 0.542 | 0.54 | +0.4% ✓ |
+| Qms | 3.929 | 2.995 | 3.097 | 2.0 | +54.9% ⚠ |
+| Re | 4.20 Ω | 4.23 Ω | 4.40 Ω | 3.7 Ω | +18.9% ⚠ |
+| Zmax | 32.24 Ω | 28.70 Ω | 29.53 Ω | — | — |
+
+Break-in is essentially complete. Fs stabilized at 23.25 Hz (only 1.2% change
+from 5h to 10h, vs 6.2% from 0h to 5h). Qts at 0.46 is within 7% of spec —
+good enough for cabinet design. Qes is within 0.4% of spec. Qms remains high
+(+55%) but has minimal impact on sealed box response. Re creeping up to 4.40 Ω
+(+19%) is likely voice coil warming from the break-in session — should settle
+back when measured cold.
+
+**Final 12SW design values:** Fs = 23.3 Hz, Qts = 0.46, Re = 4.4 Ω (cold recheck
+recommended).
+
 ---
 
 ## ScanSpeak 18W/4424G00 (midrange)
@@ -140,6 +161,29 @@ Fs at 658 Hz (vs 750 spec) gives even more crossover margin at 1100 Hz LR4 —
 442 Hz margin instead of 350 Hz. This is a healthy, well-built driver.
 
 No action needed.
+
+**Waveguide loading measurement (Jul 26):**
+
+| Parameter | Free air | In waveguide mockup | Δ | Datasheet |
+|---|---|---|---|---|
+| Fs | 658.1 Hz | 631.9 Hz | −4.0% | 750 Hz |
+| Qts | 1.042 | 1.082 | +3.8% | 1.12 |
+| Qes | 1.735 | 1.808 | +4.2% | 1.78 |
+| Qms | 2.608 | 2.692 | +3.2% | 3.0 |
+| Zmax | 8.07 Ω | 8.15 Ω | +1.0% | — |
+| Re | 3.22 Ω | 3.27 Ω | +1.6% | 3.2 Ω |
+
+First impedance measurement with the tweeter mounted in the 3D-printed waveguide
+mockup. Fs dropped 4% (658→632 Hz) — the waveguide adds acoustic mass loading on
+the dome, lowering resonance. Qts rose 3.8% — also expected from waveguide
+loading. These are small, predictable changes.
+
+The waveguide-loaded Qts (1.08) is now within 3.4% of the datasheet free-air
+value (1.12). Crossover margin: Fs = 632 Hz vs 1100 Hz LR4 = 468 Hz. Plenty.
+
+**Conclusion:** The waveguide is acoustically transparent enough that it does not
+significantly alter the tweeter's behavior. The loading is mild and predictable.
+No crossover adjustment needed.
 
 ---
 
