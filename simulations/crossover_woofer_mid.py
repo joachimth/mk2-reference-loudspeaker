@@ -124,7 +124,8 @@ def wg_loading_db(f, gain_db, f_low=1100, f_high=2000):
 # ============================================================
 #  Woofer model (2x 12SW sealed + LT)
 # ============================================================
-Fc_w = 28.0; Qtc_w = 0.707; sens_w = 84.5
+# Updated with DATS break-in design values (Jul 26): Fs=23.25, Qts=0.46 in 75L sealed -> Fc=41.2, Qtc=0.82
+Fc_w = 41.2; Qtc_w = 0.82; sens_w = 84.5
 def woofer_response(f):
     s = 1j*f/Fc_w
     return 20*np.log10(np.abs(s**2/(s**2+s/Qtc_w+1))+1e-12)+(sens_w+3)

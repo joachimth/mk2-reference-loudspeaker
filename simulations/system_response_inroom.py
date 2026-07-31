@@ -144,7 +144,8 @@ def wg_loading_db(f, gain_db, f_low=1000, f_high=2000):
 # ============================================================
 #  Woofer model: 2x GRS 12SW-4HE sealed + LT
 # ============================================================
-Fc_w = 28.0; Qtc_w = 0.707; sens_w = 84.5  # per driver, 2 drivers +3 dB
+# Updated with DATS break-in design values (Jul 26): Fs=23.25, Qts=0.46 in 75L -> Fc=41.2, Qtc=0.82
+Fc_w = 41.2; Qtc_w = 0.82; sens_w = 84.5  # per driver, 2 drivers +3 dB
 
 def woofer_response(f):
     s = 1j * f / Fc_w

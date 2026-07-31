@@ -20,7 +20,9 @@ import matplotlib.pyplot as plt
 
 rho = 1.18  # kg/m^3
 
-GRS12 = dict(name="GRS 12SW-4HE (2x)", Fs=22.0, Qts=0.43, Vas=80.4,
+# DATS measured + break-in design values (Jul 26, 10h breakout):
+# Fs=23.25 Hz, Qts=0.46, Re=4.4 Ω — datasheet: Fs=22.0, Qts=0.43
+GRS12 = dict(name="GRS 12SW-4HE (2x)", Fs=23.25, Qts=0.46, Vas=80.4,
              Sd=504e-4, Xmax=12.5e-3, sens=84.5, Pmax=250, imp=4)
 
 # Previous design reference (for comparison)
