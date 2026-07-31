@@ -124,3 +124,35 @@ plt.tight_layout()
 out = os.path.join(os.path.dirname(__file__), "plots", "bass_alignment_maxspl.png")
 fig.savefig(out, dpi=150)
 print(f"\nwrote {out}")
+
+# ---- Extended analysis (Jul 31, 2026) ----
+# After 10h break-in, GRS 12SW settled at Fs=23.25/Qts=0.46.
+# Current 75L sealed alignment: Qtc=0.816, Fc=41.2 Hz.
+#
+# Classic alignment reference:
+#   Butterworth B2 (max flat):  Vb=118L, Fc=35.7 Hz  (Qtc=0.707)
+#   Chebyshev 0.5dB:            Vb=67L,  Fc=43.0 Hz  (Qtc=0.85)
+#   EBS (extended bass shelf):  Vb=43L,  Fc=50.5 Hz  (Qtc=1.0)
+#
+# Current design at 75L sits between B2 and Chebyshev — a good compromise:
+# punchy alignment (underdamped), compact cabinet, ~16 dB advantage over
+# previous 8SW design at 30 Hz.
+#
+# LT boost at 28 Hz: only 3.6 dB. Very manageable.
+# Usable max SPL at 28 Hz (anechoic, before Xmax): 105.9 dB.
+# With conservative room gain (~8 dB at 28 Hz): ~114 dB in-room.
+#
+# Excursion at 90 dB SPL / 1m: 28 Hz → 1.5 mm pk (12% Xmax)
+#                             40 Hz → 0.75 mm pk (6% Xmax)
+# At 100 dB SPL / 1m: 28 Hz → 4.8 mm pk (38% Xmax) — still comfortable.
+#
+# Conclusion: the cabinet is well-optimized for this driver post-break-in.
+# No change needed to Vb or LT target. The 3.6 dB of LT boost at 28 Hz
+# is well within the headroom budget.
+print()
+print("--- Extended analysis (Jul 31) ---")
+print("75L sealed: Qtc=0.816, Fc=41.2 Hz (between B2 and Chebyshev)")
+print("LT boost at 28 Hz: 3.6 dB")
+print("Max SPL 28 Hz (anechoic): 105.9 dB, in-room est: ~114 dB")
+print("Excursion at 90dB/1m: 1.5 mm pk (12% Xmax)")
+print("Cabinet is well-optimized — no change needed.")
